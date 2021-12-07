@@ -51,6 +51,7 @@ namespace Capstone
 
             string connectionString = Configuration.GetConnectionString("Project");
             services.AddTransient<IUserDAO>(sp => new UserSqlDAO(connectionString));
+            services.AddTransient<IBreweryDAO>(sp => new BrewerySqlDAO(connectionString));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
