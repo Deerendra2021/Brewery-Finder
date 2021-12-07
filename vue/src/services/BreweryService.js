@@ -3,7 +3,7 @@ import axios from 'axios';
 export default {
 
     getAllBreweries() {
-        return axios.get('/brewery');
+        return axios.get('/Brewery');
     },
 
 }
