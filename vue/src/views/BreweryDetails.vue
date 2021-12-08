@@ -1,6 +1,8 @@
 <template>
     <div class="brewery-details">
-        <h1>{{brewery.name}}</h1>
+        <!-- <h1>{{brewery.name}}</h1> -->
+        <h2>This is the brewery landing page</h2>
+        <h3>{{this.$route.params.id}}</h3>
     </div>
 </template>
 
@@ -23,7 +25,7 @@ export default {
             })
             .catch(response => {
                 console.error("Could not find brewery", response);
-                this.$router.push({name: 'Home'});
+                // this.$router.push({name: 'Home'});
             })
     }
 }

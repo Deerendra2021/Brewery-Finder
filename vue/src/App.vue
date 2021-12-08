@@ -22,7 +22,10 @@
             Breweries</router-link>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Beers</a>
+          <router-link tag="a" class="nav-link"
+            v-bind:class="{' active': $route.path == '/beers' }" 
+            v-bind:to="{ name: 'beers' }">
+            Beers</router-link>
         </li>
       </ul>
       <div id="nav">
