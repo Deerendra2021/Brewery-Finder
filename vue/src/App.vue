@@ -3,7 +3,7 @@
      See https://getbootstrap.com/docs/4.5/getting-started/introduction/ for reference on bootstrap -->
 <template>
   <div id="app" class="main-image"> <!-- If you start to get random styling you don't like, remove container from this div -->
-    <nav class="navbar navbar-light bg-light">
+    <nav class="navbar navbar-inverse sticky-top bg-light">
       <a class="navbar-brand" href="" >
         <img src="./img/logo.png" alt="Next Brew logo" width="120" height=auto>
       </a>
@@ -66,11 +66,11 @@ export default {
 // Your custom styles go below this point
 
 .main-image {
-    content: "";
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     background-image: url('./img/beer-background.jpg');
     background-size: cover;
+    background-attachment: fixed;
 }
 
 </style>
