@@ -49,6 +49,11 @@
       </div>  
     </nav>
     <router-view />
+    <footer class="footerText">
+      <small>
+        By visiting this page, you agree that you are at least 21 years old and of legal drinking age. Please drink responsibly.
+      </small>
+    </footer>
   </div>
 </template>
 
@@ -78,6 +83,15 @@ export default {
 
 #app {
   min-height: 100vh;
+  font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.footerText {
+  height: 40px;
+  padding-bottom: 10px;
+  padding-left: 15px;
+  text-align: center;
+  color:#a55000a8;
 }
 
 </style>
