@@ -1,33 +1,33 @@
 <template>
-  <div class="home">
-<<<<<<< HEAD
-    <h1>Welcome to Next Brew Columbus</h1>
-    <p>Best brews in town.</p>
-=======
-    <p>EVENTUALLY THERE WILL BE CONTENT HERE</p>
-
-    <ul>
-      <brewery-list-item
-        v-for="brewery of breweries"
-        v-bind:key="brewery.brewery_id"
-        v-bind:brewery="brewery"
-        />
-    </ul>
-
->>>>>>> 631b3d4e7416e630c3835ae919d78d54fb205e7b
+  <div class="home container">
+    <h1 class="welcome">Welcome to Next Brew Columbus</h1>
+    <p>
+      Thank you for visiting us today! We are excited to welcome you to our page
+      and facilitate your search for the best breweries around town.
+    </p>
   </div>
 </template>
 
 <script>
 export default {
-  
   name: "home",
-
 };
 </script>
+
 <style>
-  .home {
-    min-height: 100vh;
-    color: white;
-  }
+.home {
+  display: flex;
+  justify-content: Center;
+  align-items: center;
+  flex-direction: column;
+
+  background-color: #222222a2;    
+  max-height: 90%;
+
+  row-gap: 40px;
+
+  min-height: 100vh;
+  color: white;
+}
+
 </style>
