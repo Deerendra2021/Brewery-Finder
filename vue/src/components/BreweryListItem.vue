@@ -10,14 +10,14 @@
         </div> -->
 
         <div class="list-group w-50">
-            <a href="#" class="list-group-item list-group-item-action active">
+            <router-link tag="a" class="list-group-item list-group-item-action active" v-bind:to="{name: 'BreweryDetails', params: {id: brewery.brewery_id} }">
                 <div class="d-flex w-100 justify-content-between">
                 <h5 class="mb-1">{{brewery.name}}</h5>
                 <small>{{brewery.city}}</small>
                 </div>
                 <!-- <p class="mb-1">{{brewery.description}}</p> -->
                 <small>{{brewery.address1}}</small>
-            </a>
+            </router-link>
         </div>
     </div>
 
