@@ -20,7 +20,7 @@ namespace Capstone.DAO
         {
             List<Brewery> breweries = new List<Brewery>();
 
-            const string sqlSelectAll = "SELECT brewery_id, name, address1, address2, city, state, zip, phone, description FROM brewery";
+            const string sqlSelectAll = "SELECT brewery_id, name, address1, city, state, zip, phone, description FROM brewery";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -37,7 +37,6 @@ namespace Capstone.DAO
                             brewery.Id = Convert.ToInt32(reader["brewery_id"]);
                             brewery.Name = Convert.ToString(reader["name"]);
                             brewery.Address1 = Convert.ToString(reader["address1"]);
-                            brewery.Address2 = Convert.ToString(reader["address2"]);
                             brewery.City = Convert.ToString(reader["city"]);
                             brewery.State = Convert.ToString(reader["state"]);
                             brewery.Zip = Convert.ToString(reader["zip"]);

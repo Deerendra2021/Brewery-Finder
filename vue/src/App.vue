@@ -1,31 +1,49 @@
 <!-- Main Application Template. 
      Note that you have classes from bootstrap available to you.
      See https://getbootstrap.com/docs/4.5/getting-started/introduction/ for reference on bootstrap -->
-<template :style="{'background-image':'url(../img/beer-background.jpg)'}">
-  <div id="app" class="container"> <!-- If you start to get random styling you don't like, remove container from this div -->
-    <div id="nav">
-      <router-link class="nav-item" v-bind:to="{ name: 'home' }">
-        <i class="fas fa-home"></i> <!-- This is a font awesome icon -->
-        Home 
-      </router-link>
-      <router-link
-        class="nav-item"
-        v-bind:to="{ name: 'register' }"
-        v-if="!$store.state.token">&nbsp;|&nbsp;Register</router-link>
-      <router-link
-        class="nav-item"
-        v-bind:to="{ name: 'login' }"
-        v-if="!$store.state.token">
-        &nbsp;|&nbsp;Login
-      </router-link>
-      <router-link
-        class="nav-item"
-        v-bind:to="{ name: 'logout' }"
-        v-if="$store.state.token">
-        &nbsp;|&nbsp;Logout
-      </router-link>
-    </div>
-    
+<template>
+  <div id="app" class="main-image"> <!-- If you start to get random styling you don't like, remove container from this div -->
+    <nav class="navbar navbar-light bg-light">
+      <a class="navbar-brand" href="" >
+        <img src="./img/logo.png" alt="Next Brew logo" width="120" height=auto>
+      </a>
+      <ul class="nav nav-pills">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Breweries</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Beers</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Map</a>
+        </li>
+      </ul>
+      <div id="nav">
+        <!--<router-link class="nav-item" v-bind:to="{ name: 'home' }">
+          <i class="fas fa-home"></i> This is a font awesome icon
+          Home 
+        </router-link>-->
+        <router-link
+          class="nav-item"
+          v-bind:to="{ name: 'register' }"
+          v-if="!$store.state.token">&nbsp;|&nbsp;Register</router-link>
+        <router-link
+          class="nav-item"
+          v-bind:to="{ name: 'login' }"
+          v-if="!$store.state.token">
+          &nbsp;|&nbsp;Login
+        </router-link>
+        <router-link
+          class="nav-item"
+          v-bind:to="{ name: 'logout' }"
+          v-if="$store.state.token">
+          &nbsp;|&nbsp;Logout
+        </router-link>
+      </div>  
+    </nav>
     <router-view />
   </div>
 </template>
@@ -46,5 +64,13 @@ export default {
 @import '../node_modules/bootstrap/scss/bootstrap';
 
 // Your custom styles go below this point
+
+.main-image {
+    content: "";
+    height: 100vh;
+    width: 100vw;
+    background-image: url('./img/beer-background.jpg');
+    background-size: cover;
+}
 
 </style>
