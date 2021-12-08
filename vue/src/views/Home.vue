@@ -3,7 +3,10 @@
     <h1 class="welcome">Welcome to Next Brew Columbus</h1>
     <p>
       Thank you for visiting us today! We are excited to welcome you to our page
-      and facilitate your search for the best breweries around town.
+      and facilitate your search for the best breweries around town. Googling can 
+      be a hassle and time consuming when you want to make quick plans to get a drink. 
+      We have collected the best of the best of breweries in and around Columbus, Ohio 
+      and hope you enjoy visiting the facilities we know and love!
     </p>
   </div>
 </template>
