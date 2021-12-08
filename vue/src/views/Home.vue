@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <p>Best brews in town.</p>
+    <p>EVENTUALLY THERE WILL BE CONTENT HERE</p>
 
     <ul>
       <brewery-list-item
