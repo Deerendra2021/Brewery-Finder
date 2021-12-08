@@ -51,5 +51,42 @@ namespace Capstone.DAO
             }
             return breweries;
         }
+
+        public ICollection<Beer> GetAllBeersByBrewery(int breweryId)
+        {
+            List<Beer> breweryBeers = new List<Beer>();
+
+            const string sqlSelectAllBeersByBrewery = "SELECT beer_id, name, brewery_id, style, availability, abv " +
+                "FROM beer " +
+                "WHERE brewery_id = @breweryId";
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+
+                using (SqlCommand command = new SqlCommand(sqlSelectAllBeersByBrewery, conn))
+                {
+                    command.Parameters.AddWithValue("@breweryId", breweryId);
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Beer beer = new Beer()
+                            {
+                                Id = Convert.ToInt32(reader["beer_id"]),
+                                Name = Convert.ToString(reader["name"]),
+                                Brewery_Id = Convert.ToInt32(reader["brewery_id"]),
+                                Style = Convert.ToString(reader["style"]),
+                                Availability = Convert.ToString(reader["availability"]),
+                                Abv = Convert.ToString(reader["abv"])
+                            };
+                        breweryBeers.Add(beer);                                                
+                        }
+                    }
+                }
+            }
+            return breweryBeers;
+        }
     }
 }
