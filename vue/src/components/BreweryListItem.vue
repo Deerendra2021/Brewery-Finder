@@ -15,7 +15,7 @@
                 <h5 class="mb-1">{{brewery.name}}</h5>
                 <small>{{brewery.city}}</small>
                 </div>
-                <p class="mb-1">{{brewery.description}}</p>
+                <!-- <p class="mb-1">{{brewery.description}}</p> -->
                 <small>{{brewery.address1}}</small>
             </a>
         </div>
@@ -34,7 +34,7 @@ export default {
 
 <style>
     .list-group{
-      opacity: 0.75;
-      padding: 5px;
+      opacity: 0.8;
+      padding: 0 5px 10px 5px;
  }
 </style>
