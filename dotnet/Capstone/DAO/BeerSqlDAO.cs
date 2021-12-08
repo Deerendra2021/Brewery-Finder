@@ -10,13 +10,12 @@ namespace Capstone.DAO
     public class BeerSqlDAO : IBeerDAO
     {
         private string connectionString;
-        const string sqlSelectAllBeer = "SELECT beer_id, name, brewery_id, state, country, style, availability, abv" +
+        const string sqlSelectAllBeer = "SELECT beer_id, name, brewery_id, style, availability, abv" +
                                     " FROM beer";
 
-        const string sqlSelectBeerById = "SELECT beer_id, name, brewery_id, state, country, style, availability, abv" +
+        const string sqlSelectBeerById = "SELECT beer_id, name, brewery_id, style, availability, abv" +
             " FROM beer" +
             " WHERE beer_id = @beer_id";
-
         public BeerSqlDAO(string connectionString)
         {
             this.connectionString = connectionString;
@@ -41,8 +40,6 @@ namespace Capstone.DAO
                             beer.Id = Convert.ToInt32(reader["beer_id"]);
                             beer.Name = Convert.ToString(reader["name"]);
                             beer.Brewery_Id = Convert.ToInt32(reader["brewery_id"]);
-                            beer.State = Convert.ToString(reader["state"]);
-                            beer.Country = Convert.ToString(reader["country"]);
                             beer.Style = Convert.ToString(reader["style"]);
                             beer.Availability = Convert.ToString(reader["availability"]);
                             beer.Abv = Convert.ToString(reader["abv"]);
@@ -90,8 +87,6 @@ namespace Capstone.DAO
                 Id = Convert.ToInt32(reader["beer_id"]),
                 Name = Convert.ToString(reader["name"]),
                 Brewery_Id = Convert.ToInt32(reader["brewery_id"]),
-                State = Convert.ToString(reader["state"]),
-                Country = Convert.ToString(reader["country"]),
                 Style = Convert.ToString(reader["style"]),
                 Availability = Convert.ToString(reader["availability"]),
                 Abv = Convert.ToString(reader["abv"]),
