@@ -48,7 +48,6 @@ CREATE TABLE beer (
 	CONSTRAINT fk_beer_brewery_id FOREIGN KEY (brewery_id) REFERENCES brewery(brewery_id)
 )
 
-
 -- Populate default data for testing: user and admin with password of 'password'
 -- These values should not be kept when going to Production
 INSERT INTO users (username, password_hash, salt, user_role) VALUES ('user','Jg45HuwT7PZkfuKTz6IB90CtWY4=','LHxP4Xh7bN0=','user');

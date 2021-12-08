@@ -18,7 +18,7 @@ import BreweryService from '../services/BreweryService';
 
 export default {
   
-  name: "home",
+  name: "breweries",
 
   computed: {
       breweries() {

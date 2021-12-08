@@ -5,7 +5,7 @@ namespace Capstone.DAO
 {
     public interface IBreweryDAO
     {
+        ICollection<Beer> GetAllBeersByBrewery(int breweryId);
         ICollection<Brewery> GetAllBreweries();
-        ICollection<Brewery> FindBreweryById(int id);
     }
 }

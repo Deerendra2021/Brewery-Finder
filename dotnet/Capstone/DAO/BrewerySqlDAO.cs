@@ -56,42 +56,41 @@ namespace Capstone.DAO
             return breweries;
         }
 
-        public ICollection<Brewery> FindBreweryById(int id)
+        public ICollection<Beer> GetAllBeersByBrewery(int breweryId)
         {
-            List<Brewery> brewery = new List<Brewery>();
+            List<Beer> breweryBeers = new List<Beer>();
 
-            using(SqlConnection conn = new SqlConnection(connectionString))
+            const string sqlSelectAllBeersByBrewery = "SELECT beer_id, name, brewery_id, style, availability, abv " +
+                "FROM beer " +
+                "WHERE brewery_id = @breweryId";
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
 
-                using (SqlCommand cmd = new SqlCommand(sqlSelectBreweryById, conn))
+                using (SqlCommand command = new SqlCommand(sqlSelectAllBeersByBrewery, conn))
                 {
-                    cmd.Parameters.AddWithValue("@brewery_id", id);
+                    command.Parameters.AddWithValue("@breweryId", breweryId);
 
-                    using(SqlDataReader reader = cmd.ExecuteReader())
+                    using (SqlDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            Brewery brew = new Brewery()
+                            Beer beer = new Beer()
                             {
-                                Id = Convert.ToInt32(reader["brewery_id"]),
+                                Id = Convert.ToInt32(reader["beer_id"]),
                                 Name = Convert.ToString(reader["name"]),
-                                Address1 = Convert.ToString(reader["address1"]),
-                                City = Convert.ToString(reader["city"]),
-                                State = Convert.ToString(reader["state"]),
-                                Zip = Convert.ToString(reader["zip"]),
-                                Phone = Convert.ToString(reader["phone"]),
-                                Description = Convert.ToString(reader["description"]),
+                                Brewery_Id = Convert.ToInt32(reader["brewery_id"]),
+                                Style = Convert.ToString(reader["style"]),
+                                Availability = Convert.ToString(reader["availability"]),
+                                Abv = Convert.ToString(reader["abv"])
                             };
-
-                            brewery.Add(brew);
+                        breweryBeers.Add(beer);                                                
                         }
                     }
                 }
             }
-
-            return brewery;
+            return breweryBeers;
         }
-
     }
 }

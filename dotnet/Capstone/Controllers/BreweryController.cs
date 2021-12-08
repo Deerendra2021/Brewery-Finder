@@ -30,10 +30,14 @@ namespace Capstone.Controllers
             return Ok(allBreweries);
         }
 
-        [HttpGet("{brewery_id}")]
-        public ActionResult GetBreweryById(int brewery_id)
+        [HttpGet("{id}")]
+        [AllowAnonymous]
+        public ActionResult GetAllBeersByBreweryId(int id)
         {
-            return Ok(breweries.FindBreweryById(brewery_id));
+            ICollection<Beer> allBeersByBrewery = breweries.GetAllBeersByBrewery(id);
+
+            return Ok(allBeersByBrewery);
+
         }
     }
 }
