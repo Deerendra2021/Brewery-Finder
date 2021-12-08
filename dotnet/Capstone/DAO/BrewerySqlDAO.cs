@@ -20,7 +20,7 @@ namespace Capstone.DAO
         {
             List<Brewery> breweries = new List<Brewery>();
 
-            const string sqlSelectAll = "SELECT brewery_id, name, address1, city, state, zip, phone, description FROM brewery";
+            const string sqlSelectAll = "SELECT brewery_id, name, address1, city, state, zip, phone, description FROM brewery ORDER BY name";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
