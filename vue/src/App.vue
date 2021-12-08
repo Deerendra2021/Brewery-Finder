@@ -3,22 +3,26 @@
      See https://getbootstrap.com/docs/4.5/getting-started/introduction/ for reference on bootstrap -->
 <template>
   <div id="app" class="main-image"> <!-- If you start to get random styling you don't like, remove container from this div -->
-    <nav class="navbar navbar-light bg-light">
-      <a class="navbar-brand" href="" >
-        <img src="./img/logo.png" alt="Next Brew logo" width="120" height=auto>
-      </a>
+    <nav class="navbar navbar-inverse sticky-top bg-light">
+      <router-link tag="a" class="navbar-brand"
+            v-bind:to="{ name: 'home' }">
+        <img src="./img/NextBrewLogoBlack.png" alt="Next Brew logo" width="120" height=auto>
+      </router-link>
       <ul class="nav nav-pills">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <router-link tag="a" class="nav-link" 
+            v-bind:class="{' active': $route.path == '/' }" 
+            v-bind:to="{ name: 'home' }">
+            Home</router-link>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Breweries</a>
+            <router-link tag="a" class="nav-link"
+            v-bind:class="{' active': $route.path == '/breweries' }" 
+            v-bind:to="{ name: 'breweries' }">
+            Breweries</router-link>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Beers</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Map</a>
         </li>
       </ul>
       <div id="nav">
@@ -29,7 +33,7 @@
         <router-link
           class="nav-item"
           v-bind:to="{ name: 'register' }"
-          v-if="!$store.state.token">&nbsp;|&nbsp;Register</router-link>
+          v-if="!$store.state.token">Register</router-link>
         <router-link
           class="nav-item"
           v-bind:to="{ name: 'login' }"
@@ -40,7 +44,7 @@
           class="nav-item"
           v-bind:to="{ name: 'logout' }"
           v-if="$store.state.token">
-          &nbsp;|&nbsp;Logout
+          Logout
         </router-link>
       </div>  
     </nav>
@@ -66,11 +70,14 @@ export default {
 // Your custom styles go below this point
 
 .main-image {
-    content: "";
-    height: 100vh;
-    width: 100vw;
-    background-image: url('./img/beer-background.jpg');
+    height: 100%;
+    width: 100%;
+    background: url('./img/beer-background.jpg') no-repeat center center fixed;
     background-size: cover;
+}
+
+#app {
+  min-height: 100vh;
 }
 
 </style>

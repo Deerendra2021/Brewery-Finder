@@ -49,6 +49,30 @@ CREATE TABLE beer (
 	CONSTRAINT fk_beer_brewery_id FOREIGN KEY (brewery_id) REFERENCES brewery(brewery_id)
 )
 
+CREATE TABLE beer (
+	
+	beer_id int NOT NULL,
+	name varchar(100) NOT NULL,
+	brewery_id int NOT NULL,
+	state varchar(20) NOT NULL,
+	country varchar(50) NOT NULL,
+	style varchar(30),
+	availability varchar(20),
+	abv varchar(20)
+
+)
+INSERT INTO beer (beer_id, name, brewery_id, state, country, style, availability, abv)
+VALUES (354484, 'Cranberry', 48516, 'OH', 'US', 'Fruit and Field Beer', 'Rotating', 5.8);
+
+INSERT INTO beer (beer_id, name, brewery_id, state, country, style, availability, abv)
+VALUES (112542, 'Black Tonic', 28299, 'OH', 'US', 'American Stout', 'Rotating', 8.8);
+
+INSERT INTO beer (beer_id, name, brewery_id, state, country, style, availability, abv)
+VALUES (282973, 'Urban Sombrero', 37078, 'OH', 'US', 'American Adjunct Lager', 'Rotating', 5.7);
+
+INSERT INTO beer (beer_id, name, brewery_id, state, country, style, availability, abv)
+VALUES (42880, 'Barley''s Bombshell Blonde', 1513, 'OH', 'US', 'German Helles', 'Spring', 4.5);
+
 -- Populate default data for testing: user and admin with password of 'password'
 -- These values should not be kept when going to Production
 INSERT INTO users (username, password_hash, salt, user_role) VALUES ('user','Jg45HuwT7PZkfuKTz6IB90CtWY4=','LHxP4Xh7bN0=','user');
