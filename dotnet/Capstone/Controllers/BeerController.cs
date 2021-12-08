@@ -29,12 +29,13 @@ namespace Capstone.Controllers
 
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{beer_id}")]
         [AllowAnonymous]
-        public ActionResult GetBeerById(int id)
+        public ActionResult GetBeerById(int beer_id)
         {
-            return Ok(beers.FindBeerById(id));
+            return Ok(beers.FindBeerById(beer_id));
         }
+
 
     }
 }

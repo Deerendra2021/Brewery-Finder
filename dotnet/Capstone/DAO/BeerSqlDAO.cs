@@ -16,7 +16,6 @@ namespace Capstone.DAO
         const string sqlSelectBeerById = "SELECT beer_id, name, brewery_id, style, availability, abv" +
             " FROM beer" +
             " WHERE beer_id = @beer_id";
-
         public BeerSqlDAO(string connectionString)
         {
             this.connectionString = connectionString;
@@ -80,6 +79,7 @@ namespace Capstone.DAO
             return null;
 
         }
+
         private static Beer LoadBeerFromReader(SqlDataReader reader)
         {
             return new Beer

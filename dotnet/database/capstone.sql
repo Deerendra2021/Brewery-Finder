@@ -4,7 +4,6 @@ GO
 -- Drop database if it exists
 IF DB_ID('brewery_finder') IS NOT NULL
 BEGIN
-	ALTER DATABASE brewery_finder SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
 	DROP DATABASE brewery_finder;
 END
 
@@ -49,6 +48,10 @@ CREATE TABLE beer (
 	CONSTRAINT fk_beer_brewery_id FOREIGN KEY (brewery_id) REFERENCES brewery(brewery_id)
 )
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 909ec4f859a348e4eaba8bc89553f57123eae147
 -- Populate default data for testing: user and admin with password of 'password'
 -- These values should not be kept when going to Production
 INSERT INTO users (username, password_hash, salt, user_role) VALUES ('user','Jg45HuwT7PZkfuKTz6IB90CtWY4=','LHxP4Xh7bN0=','user');
