@@ -30,6 +30,9 @@ export default {
   row-gap: 40px;
 
   color: white;
+  min-height: 50vh;
+  margin-top: 10vh;
+
 }
 
 </style>

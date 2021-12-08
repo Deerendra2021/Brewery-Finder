@@ -1,11 +1,11 @@
 <template>
  <div class="breweries">
     <ul>
-      <brewery-list-item
-        v-for="brewery of breweries"
-        v-bind:key="brewery.brewery_id"
-        v-bind:brewery="brewery"
-        />
+            <brewery-list-item
+                v-for="brewery of breweries"
+                v-bind:key="brewery.brewery_id"
+                v-bind:brewery="brewery"
+                />
     </ul>
 
   </div>
@@ -20,10 +20,10 @@ export default {
   
   name: "home",
 
-  data(){
-    return {
-      breweries: []
-    }
+  computed: {
+      breweries() {
+          return this.$store.state.breweries;
+      }
   },
 
   components: 
@@ -35,7 +35,7 @@ export default {
 
         console.log(response);
 
-        this.breweries = response.data;
+        this.$store.commit('BREWERIES_LOADED', response.data);
       })
       .catch(error => {
 
