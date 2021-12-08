@@ -29,5 +29,11 @@ namespace Capstone.Controllers
 
             return Ok(allBreweries);
         }
+
+        [HttpGet("{brewery_id}")]
+        public ActionResult GetBreweryById(int brewery_id)
+        {
+            return Ok(breweries.FindBreweryById(brewery_id));
+        }
     }
 }

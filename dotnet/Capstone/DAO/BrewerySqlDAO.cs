@@ -11,6 +11,10 @@ namespace Capstone.DAO
     {
         private string connectionString;
 
+        private readonly string sqlSelectBreweryById = "SELECT brewery_id, name, address1, city, state, zip, phone, description" +
+            " FROM brewery" +
+            " WHERE brewery_id = @brewery_id";
+
         public BrewerySqlDAO(string connectionString)
         {
             this.connectionString = connectionString;
@@ -52,6 +56,42 @@ namespace Capstone.DAO
             return breweries;
         }
 
+        public ICollection<Brewery> FindBreweryById(int id)
+        {
+            List<Brewery> brewery = new List<Brewery>();
+
+            using(SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+
+                using (SqlCommand cmd = new SqlCommand(sqlSelectBreweryById, conn))
+                {
+                    cmd.Parameters.AddWithValue("@brewery_id", id);
+
+                    using(SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Brewery brew = new Brewery()
+                            {
+                                Id = Convert.ToInt32(reader["brewery_id"]),
+                                Name = Convert.ToString(reader["name"]),
+                                Address1 = Convert.ToString(reader["address1"]),
+                                City = Convert.ToString(reader["city"]),
+                                State = Convert.ToString(reader["state"]),
+                                Zip = Convert.ToString(reader["zip"]),
+                                Phone = Convert.ToString(reader["phone"]),
+                                Description = Convert.ToString(reader["description"]),
+                            };
+
+                            brewery.Add(brew);
+                        }
+                    }
+                }
+            }
+
+            return brewery;
+        }
 
     }
 }
