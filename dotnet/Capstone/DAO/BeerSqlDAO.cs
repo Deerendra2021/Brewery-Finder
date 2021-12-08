@@ -82,6 +82,7 @@ namespace Capstone.DAO
             return null;
 
         }
+
         private static Beer LoadBeerFromReader(SqlDataReader reader)
         {
             return new Beer
