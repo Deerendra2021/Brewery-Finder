@@ -4,15 +4,20 @@
 <template>
   <div id="app" class="main-image"> <!-- If you start to get random styling you don't like, remove container from this div -->
     <nav class="navbar navbar-inverse sticky-top bg-light">
-      <a class="navbar-brand" href="" >
+      <router-link tag="a" class="navbar-brand"
+            v-bind:to="{ name: 'home' }">
         <img src="./img/NextBrewLogoBlack.png" alt="Next Brew logo" width="120" height=auto>
-      </a>
+      </router-link>
       <ul class="nav nav-pills">
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="#">Home</a>
+          <router-link tag="a" class="nav-link" 
+            v-bind:class="{' active': $route.path == '/' }" 
+            v-bind:to="{ name: 'home' }">
+            Home</router-link>
         </li>
         <li class="nav-item">
             <router-link tag="a" class="nav-link"
+            v-bind:class="{' active': $route.path == '/breweries' }" 
             v-bind:to="{ name: 'breweries' }">
             Breweries</router-link>
         </li>
@@ -28,7 +33,7 @@
         <router-link
           class="nav-item"
           v-bind:to="{ name: 'register' }"
-          v-if="!$store.state.token">&nbsp;|&nbsp;Register</router-link>
+          v-if="!$store.state.token">Register</router-link>
         <router-link
           class="nav-item"
           v-bind:to="{ name: 'login' }"
@@ -39,7 +44,7 @@
           class="nav-item"
           v-bind:to="{ name: 'logout' }"
           v-if="$store.state.token">
-          &nbsp;|&nbsp;Logout
+          Logout
         </router-link>
       </div>  
     </nav>
@@ -65,11 +70,10 @@ export default {
 // Your custom styles go below this point
 
 .main-image {
-    min-height: 100vh;
+    height: 100%;
+    width: 100%;
     background: url('./img/beer-background.jpg') no-repeat center center fixed;
     background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
 }
 
 #app {

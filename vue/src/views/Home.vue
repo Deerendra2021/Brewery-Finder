@@ -29,7 +29,6 @@ export default {
 
   row-gap: 40px;
 
-  min-height: 100vh;
   color: white;
 }
 

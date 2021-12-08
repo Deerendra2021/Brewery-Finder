@@ -94,8 +94,5 @@ export default {
 </script>
 
 <style>
-  #register {
-    min-height: 100vh;
-  }
 
 </style>
