@@ -35,6 +35,6 @@ export default {
 <style>
     .list-group{
       opacity: 0.8;
-      padding: 0 5px 10px 5px;
+      padding: 5px;
  }
 </style>

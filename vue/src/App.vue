@@ -5,20 +5,19 @@
   <div id="app" class="main-image"> <!-- If you start to get random styling you don't like, remove container from this div -->
     <nav class="navbar navbar-inverse sticky-top bg-light">
       <a class="navbar-brand" href="" >
-        <img src="./img/logo.png" alt="Next Brew logo" width="120" height=auto>
+        <img src="./img/NextBrewLogoBlack.png" alt="Next Brew logo" width="120" height=auto>
       </a>
       <ul class="nav nav-pills">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link" aria-current="page" href="#">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Breweries</a>
+            <router-link tag="a" class="nav-link"
+            v-bind:to="{ name: 'breweries' }">
+            Breweries</router-link>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Beers</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Map</a>
         </li>
       </ul>
       <div id="nav">
@@ -66,11 +65,15 @@ export default {
 // Your custom styles go below this point
 
 .main-image {
-    height: 100%;
-    width: 100%;
-    background-image: url('./img/beer-background.jpg');
+    min-height: 100vh;
+    background: url('./img/beer-background.jpg') no-repeat center center fixed;
     background-size: cover;
-    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+#app {
+  min-height: 100vh;
 }
 
 </style>
