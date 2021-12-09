@@ -3,6 +3,8 @@
 
     <h1>{{beer.name}}</h1>
     <h2>{{beer.style}}</h2>
+    <h2>{{beer.availability}}</h2>
+    <h2>{{beer.abv}}</h2>
 
 </div>
   
@@ -16,12 +18,10 @@ export default {
 
     data(){
         return {
-            beer: undefined,
+            beer: [] 
         }
     },
-
-    methods: 
-    {
+    
         created(){
             
            let beerId = parseInt(this.$route.params.id);
@@ -42,7 +42,7 @@ export default {
    
         }
 
-    },
+    
 
 }
 </script>

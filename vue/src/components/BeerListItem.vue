@@ -8,7 +8,7 @@
         <h6 class="card-subtitle mb-2 text-muted">{{ beer.style }}</h6>
         <p class="card-text">{{ beer.availability }}</p>
         <router-link tag="a" class="card-link"
-          v-bind:to="{name: 'BreweryDetails', params: {id: beer.breweryId} }">
+          v-bind:to="{name: 'BeerDetails', params: {id: beer.id} }">
             Beer Details
         </router-link>
       </div>
