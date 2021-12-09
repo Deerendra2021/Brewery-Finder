@@ -1,14 +1,14 @@
 <template>
     <div class="container brewery-details">
         <h1>{{brewery.name}}</h1>
-        <h3>{{brewery.address1}} 
+        <h3 class="text-center">{{brewery.address1}} 
             <br>
         {{brewery.city}}, {{brewery.state}} {{brewery.zip}}
         <br>
         {{brewery.phone}}</h3>
-        <h3>{{brewery.description}}</h3>
+        <h3 class="text-center">{{brewery.description}}</h3>
         <ul>
-            <beer-list-item tag="span" class="d-flex flex-wrap"
+            <beer-list-item class="d-inline-block"
                 v-for="beer of beers"
                 v-bind:key="beer.id"
                 v-bind:beer="beer"
@@ -46,7 +46,7 @@ export default {
             })
             .catch(response => {
                 console.error("Could not find beers", response);
-                // this.$router.push({name: 'Home'});
+                this.$router.push({name: 'Home'});
             })
     }
 }

@@ -1,13 +1,12 @@
 <template>
-    <div class="beers">
+  <div class="beers">
     <ul>
-            <beer-list-item
+            <beer-list-item 
                 v-for="beer of beers"
                 v-bind:key="beer.id"
                 v-bind:beer="beer"
                 />
     </ul>
-
   </div>
 </template>
 
@@ -44,8 +43,6 @@ export default {
 
 }
 </script>
-
-
 
 <style>
 

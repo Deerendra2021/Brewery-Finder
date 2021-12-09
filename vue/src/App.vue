@@ -6,7 +6,7 @@
     <nav class="navbar navbar-inverse sticky-top bg-light">
       <router-link tag="a" class="navbar-brand"
             v-bind:to="{ name: 'home' }">
-        <img src="./img/NextBrewLogoBlack.png" alt="Next Brew logo" width="120" height=auto>
+        <img src="./img/NextBrewLogoBlack.png" alt="Next Brew logo" width="160" height=auto>
       </router-link>
       <ul class="nav nav-pills">
         <li class="nav-item">
