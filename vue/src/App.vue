@@ -6,7 +6,7 @@
     <nav class="navbar navbar-inverse sticky-top bg-light">
       <router-link tag="a" class="navbar-brand"
             v-bind:to="{ name: 'home' }">
-        <img src="./img/NextBrewLogoBlack.png" alt="Next Brew logo" width="120" height=auto>
+        <img src="./img/NextBrewLogoBlack.png" alt="Next Brew logo" width="160" height=auto>
       </router-link>
       <ul class="nav nav-pills">
         <li class="nav-item">
@@ -91,10 +91,10 @@ export default {
 
 .footerText {
   height: 40px;
-  padding-bottom: 10px;
-  padding-left: 15px;
+  padding-bottom: 5px;
   text-align: center;
-  color:#a55000a8;
+  color:#b95a00;
+  background-color: rgba(0, 0, 0, 0.637);
 }
 
 </style>

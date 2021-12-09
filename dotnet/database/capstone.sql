@@ -48,6 +48,18 @@ CREATE TABLE beer (
 	CONSTRAINT fk_beer_brewery_id FOREIGN KEY (brewery_id) REFERENCES brewery(brewery_id)
 )
 
+CREATE TABLE reviews (
+	review_id int NOT NULL,
+	beer_id int NOT NULL,
+	user_id int NOT NULL,
+	name varchar(100) NOT NULL,
+	rating int NOT NULL,
+	description varchar(400) NOT NULL,
+	CONSTRAINT pk_review_id PRIMARY KEY (review_id),
+	CONSTRAINT fk_beer_id FOREIGN KEY (beer_id) REFERENCES beer(beer_id),
+	CONSTRAINT fk_user_id FOREIGN KEY (user_id) REFERENCES users(user_id)
+)
+
 -- Populate default data for testing: user and admin with password of 'password'
 -- These values should not be kept when going to Production
 INSERT INTO users (username, password_hash, salt, user_role) VALUES ('user','Jg45HuwT7PZkfuKTz6IB90CtWY4=','LHxP4Xh7bN0=','user');
@@ -2769,5 +2781,58 @@ INSERT INTO beer (beer_id, name, brewery_id, style, availability, abv) VALUES(
 INSERT INTO beer (beer_id, name, brewery_id, style, availability, abv) VALUES(
 240765,'Heather Wood',1513,'Herb and Spice Beer','Rotating',5.8
 );
+INSERT INTO reviews (review_id, beer_id, user_id, name, rating, description)
+VALUES (0001, 257876, 1, 'Kevin Teos', 3, 'Not sure if it is because ofice kegs hit different at 4:30 on Friday but this is an exceptional hoppy/juicy beer.');
+
+INSERT INTO reviews (review_id, beer_id, user_id, name, rating, description)
+VALUES (0002, 257876, 2, 'Matt Eland', 4, 'Very complex dark IPA, yes please!');
+
+INSERT INTO reviews (review_id, beer_id, user_id, name, rating, description)
+VALUES (0003, 257877, 1, 'Kevin Teos', 4, 'Malty and sweet but it fits really well with the nutty flavor.');
+
+INSERT INTO reviews (review_id, beer_id, user_id, name, rating, description)
+VALUES (0004, 257877, 2, 'Matt Eland', 4, 'Well balanced with some wings and pizza, LOVE IT!');
+
+INSERT INTO reviews (review_id, beer_id, user_id, name, rating, description)
+VALUES (0005, 257878, 1, 'Kevin Teos', 5, 'Smooth. Iced Coffee. DELICIOUS!');
+
+INSERT INTO reviews (review_id, beer_id, user_id, name, rating, description)
+VALUES (0006, 257878, 2, 'Matt Eland', 3, 'Really good but I am going to be awake for the next three days!');
+
+INSERT INTO reviews (review_id, beer_id, user_id, name, rating, description)
+VALUES (0007, 257879, 1, 'Kevin Teos', 3, 'Solid. Better if they offered a rim of brown sugar.');
+
+INSERT INTO reviews (review_id, beer_id, user_id, name, rating, description)
+VALUES (0008, 257879, 2, 'Matt Eland', 5, 'Pretty good, subtly spiced. Favorite fall drink ever!');
+
+INSERT INTO reviews (review_id, beer_id, user_id, name, rating, description)
+VALUES (0009, 257880, 1, 'Kevin Teos', 3, 'Decent but not stellar.');
+
+INSERT INTO reviews (review_id, beer_id, user_id, name, rating, description)
+VALUES (0010, 257880, 2, 'Matt Eland', 3, 'Meh. I have had better beers. Like the Roundtown Pumkin Ale. That is my favorite.');
+
+INSERT INTO reviews (review_id, beer_id, user_id, name, rating, description)
+VALUES (0011, 257881, 1, 'Kevin Teos', 3, 'I love beer so I can never rate anything very bad at all but this is a pretty mediocre one in my book');
+
+INSERT INTO reviews (review_id, beer_id, user_id, name, rating, description)
+VALUES (0012, 257881, 2, 'Matt Eland', 2, 'I wish I could say good things about this one but I would rather drink Pepsi than this. It is not that great in my opinion.');
+
+INSERT INTO reviews (review_id, beer_id, user_id, name, rating, description)
+VALUES (0013, 257882, 1, 'Kevin Teos', 4, 'Solid beer. I did not know Whitehall had a brewery?!?!');
+
+INSERT INTO reviews (review_id, beer_id, user_id, name, rating, description)
+VALUES (0014, 257882, 2, 'Matt Eland', 4, 'Nice and clean.');
+
+INSERT INTO reviews (review_id, beer_id, user_id, name, rating, description)
+VALUES (0015, 257883, 1, 'Kevin Teos', 5, 'Dry, dark, and roasty. This beer is amazing, truly impressive!');
+
+INSERT INTO reviews (review_id, beer_id, user_id, name, rating, description)
+VALUES (0016, 257883, 2, 'Matt Eland', 5, 'Reminds me of Diet Dr Pepper, my favorite!! Smooth and solid!');
+
+INSERT INTO reviews (review_id, beer_id, user_id, name, rating, description)
+VALUES (0017, 289014, 1, 'Kevin Teos', 4, 'Easy drinking, I like it.');
+
+INSERT INTO reviews (review_id, beer_id, user_id, name, rating, description)
+VALUES (0018, 289014, 2, 'Matt Eland', 4, 'Good one. Nice hoppy bitter aftertaste.');
 
 COMMIT;
