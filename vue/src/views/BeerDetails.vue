@@ -1,10 +1,23 @@
 <template>
-<div class ="beer-details">
+<div class ="beer-details container">
 
     <h1>{{beer.name}}</h1>
     <h2>{{beer.style}}</h2>
     <h2>{{beer.availability}}</h2>
     <h2>{{beer.abv}}</h2>
+    <br />
+    <p>____________________<p>
+    <br />
+    <h3>Beer Reviews</h3>
+    <!-- <div class="list-group">
+        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">{{reviews.name}}</h5>
+                <small>{{reviews.rating}}</small>
+            </div>
+            <p class="mb-1">{{reviews.description}}</p>
+        </a>
+    </div> -->
 
 </div>
   
@@ -13,12 +26,14 @@
 <script>
 
 import BeerService from '../services/BeerService.js';
+import ReviewService from '../services/ReviewService.js';
 
 export default {
 
     data(){
         return {
-            beer: [] 
+            beer: [],
+            reveiws: []
         }
     },
     
@@ -37,6 +52,20 @@ export default {
                console.log("Fail to load Beer", error.response);
 
            });
+
+           let reviewId = parseInt(this.$route.params.id);
+
+           ReviewService.getReviewById(reviewId)
+           .then(response => {
+
+               this.reveiws = response.data;
+           })
+
+           .catch(error => {
+
+               console.log("Fail to load Reviews", error.response);
+
+           });
    
         }
 
@@ -46,7 +75,7 @@ export default {
 <style>
 
 .beer-details {
-
+    
     color: white;
 
     padding-top: 30px;
@@ -57,11 +86,9 @@ export default {
     align-items: center;
     flex-direction: column;
 
+    margin-top: 9vh;
     background: center, #222222a2;
 
 }
-
-
-
 
 </style>
