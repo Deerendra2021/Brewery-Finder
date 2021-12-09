@@ -1,20 +1,21 @@
 <template>
   <div class="beers container">
-    <table class="beerTable">
+    <table class="beerTable container">
       <thead>
-      <tr>
+      <tr class="tableHeading">
         <th>Beer Name</th>
-        <th>ABV</th>
-        <th>Beer Style</th>
         <th>Availability</th>
+        <th>Beer Style</th>
+        <th>ABV</th>
       </tr>
       </thead>
+      <br />
       <tbody>
       <tr v-for="beer in beers" v-bind:key="beer.id">
         <td>{{beer.name}}</td>
-        <td>{{beer.abv}}</td>
         <td>{{beer.style}}</td>
         <td>{{beer.availability}}</td>
+        <td>{{beer.abv}}</td>
       </tr>
       </tbody>
     <beer-list-item />
@@ -57,5 +58,16 @@ export default {
 </script>
 
 <style>
+
+.beerTable {
+  background-color: #222222a2;
+  text-align: center;
+  table-layout: default;
+  padding: 15px;
+}
+
+.tableHeading {
+  font-size: 24px;
+}
 
 </style>
