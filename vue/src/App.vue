@@ -9,19 +9,19 @@
         <img src="./img/NextBrewLogoBlack.png" alt="Next Brew logo" width="160" height=auto>
       </router-link>
       <ul class="nav nav-pills">
-        <li class="nav-item">
+        <li class="nav-item h5">
           <router-link tag="a" class="nav-link" 
             v-bind:class="{' active': $route.path == '/' }" 
             v-bind:to="{ name: 'home' }">
             Home</router-link>
         </li>
-        <li class="nav-item">
+        <li class="nav-item h5">
             <router-link tag="a" class="nav-link"
             v-bind:class="{' active': $route.path == '/breweries' }" 
             v-bind:to="{ name: 'breweries' }">
             Breweries</router-link>
         </li>
-        <li class="nav-item">
+        <li class="nav-item h5">
           <router-link tag="a" class="nav-link"
             v-bind:class="{' active': $route.path == '/beers' }" 
             v-bind:to="{ name: 'beers' }">
@@ -34,17 +34,17 @@
           Home 
         </router-link>-->
         <router-link
-          class="nav-item"
+          class="nav-item h6"
           v-bind:to="{ name: 'register' }"
           v-if="!$store.state.token">Register</router-link>
         <router-link
-          class="nav-item"
+          class="nav-item h6"
           v-bind:to="{ name: 'login' }"
           v-if="!$store.state.token">
           &nbsp;|&nbsp;Login
         </router-link>
         <router-link
-          class="nav-item"
+          class="nav-item h6"
           v-bind:to="{ name: 'logout' }"
           v-if="$store.state.token">
           Logout
