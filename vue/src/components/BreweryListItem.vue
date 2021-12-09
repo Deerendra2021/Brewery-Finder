@@ -10,7 +10,7 @@
         </div> -->
 
         <div class="list-group w-50">
-            <router-link tag="a" class="list-group-item list-group-item-action active" v-bind:to="{name: 'BreweryDetails', params: {id: brewery.id} }">
+            <router-link tag="a" class="list-group-item list-group-item-action active hover-overlay" v-bind:to="{name: 'BreweryDetails', params: {id: brewery.id} }">
                 <div class="d-flex w-100 justify-content-between">
                 <h5 class="mb-1">{{brewery.name}}</h5>
                 <small>{{brewery.city}}</small>
@@ -35,5 +35,10 @@ export default {
     .list-group{
       opacity: 0.8;
       padding: 5px;
- }
+    }
+
+    .list-group-item:hover {
+        background-color: #15616d;
+        opacity: 0.7; 
+    }
 </style>

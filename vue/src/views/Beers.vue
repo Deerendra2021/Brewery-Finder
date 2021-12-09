@@ -1,6 +1,6 @@
 <template>
   <div class="beers container">
-    <table class="beerTable container">
+    <table class="beerTable container table-hover">
       <thead>
       <tr class="tableHeading">
         <th>Beer Name</th>
