@@ -25,7 +25,7 @@
           options on Google that appeal to everyone in my group. This made it so much
           easier!
       </em></q><br/>
-      - Tweedle Dee
+      - Kevin Teos
     </blockquote>
     <blockquote>
       <q><em>
@@ -36,7 +36,7 @@
           to navigate every individual brewery's website for beer lists. Thank you for 
           making my life easy!
       </em></q><br/>
-      - Tweedle Dum
+      - John Fulton
     </blockquote>
     </div>
   </div>

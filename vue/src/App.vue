@@ -91,10 +91,10 @@ export default {
 
 .footerText {
   height: 40px;
-  padding-bottom: 10px;
-  padding-left: 15px;
+  padding-bottom: 5px;
   text-align: center;
-  color:#a55000a8;
+  color:#b95a00;
+  background-color: rgba(0, 0, 0, 0.637);
 }
 
 </style>
