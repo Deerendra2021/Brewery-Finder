@@ -9,13 +9,13 @@
     <p>____________________<p>
     <br />
     <h3>Beer Reviews</h3>
-    <div class="list-group" v-for="review in reviews" v-bind:key="review.id">
+    <div class="list-group card-deck" v-for="review in reviews" v-bind:key="review.id">
         <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
             <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">{{reviews.name}}</h5>
-                <small>{{reviews.rating}}/5</small>
+                <h5 class="mb-1">{{review.name}}</h5>
+                <small>{{review.rating}}/5</small>
             </div>
-            <p class="mb-1">{{reviews.description}}</p>
+            <p class="mb-1">{{review.description}}</p>
         </a>
     </div>
 
