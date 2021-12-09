@@ -1,6 +1,6 @@
 <template>
   <div class="beers">
-    <ul>
+    <ul class="d-inline-flex">
             <beer-list-item 
                 v-for="beer of beers"
                 v-bind:key="beer.id"
