@@ -95,6 +95,9 @@ export default {
   text-align: center;
   color:#b95a00;
   background-color: rgba(0, 0, 0, 0.637);
+  position: relative;
+  bottom: 0;
+  width: 100%;
 }
 
 </style>

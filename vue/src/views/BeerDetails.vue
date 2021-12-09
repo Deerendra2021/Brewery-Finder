@@ -29,24 +29,39 @@ export default {
            BeerService.getBeerById(beerId)
            .then(response => {
 
-               console.log(response);
-
                this.beer = response.data;
            })
 
            .catch(error => {
 
-               console.log("Fail to load Beer", error);
+               console.log("Fail to load Beer", error.response);
 
            });
    
         }
 
-    
-
 }
 </script>
 
 <style>
+
+.beer-details {
+
+    color: white;
+
+    padding-top: 30px;
+    padding-bottom: 50px;
+
+    display: flex;
+    justify-content: Center;
+    align-items: center;
+    flex-direction: column;
+
+    background: center, #222222a2;
+
+}
+
+
+
 
 </style>

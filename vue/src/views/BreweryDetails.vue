@@ -7,8 +7,8 @@
         <br>
         {{brewery.phone}}</h3>
         <h3 class="text-center">{{brewery.description}}</h3>
-        <ul>
-            <beer-list-item class="d-inline-block"
+        <ul class="d-inline-flex">
+            <beer-list-item class="beer-list"
                 v-for="beer of beers"
                 v-bind:key="beer.id"
                 v-bind:beer="beer"
@@ -51,7 +51,6 @@ export default {
     }
 }
 </script>
-
 <style>
 div {
     color: white;
@@ -71,6 +70,11 @@ div {
     color: white;
     min-height: 74vh;
     margin-top: 9vh;
+}
+
+ul {
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 /* beer-list-item {
