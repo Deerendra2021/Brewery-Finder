@@ -1,5 +1,5 @@
 <template>
-  <div class="beerCards">
+  <div class="beerCards card-deck">
     <div class="card text-primary bg-info mb-3 text-center" style="width: 25rem">
       <div class="card-body">
           <img src="../img/BeerIcon.png" alt="Beer Icon" class="beerIcon" />
