@@ -2,7 +2,7 @@
   <div>
     <div class="card text-primary bg-danger mb-3" style="width: 18rem">
       <div class="card-body">
-          <!-- <img src="./img/BeerIcon.png" alt="Beer Icon" class="beerIcon" /> -->
+          <img src="../img/BeerIcon.png" alt="Beer Icon" class="beerIcon" />
         <h5 class="card-title">{{ beer.name }}</h5>
         <small>{{ beer.abv }} ABV</small>
         <h6 class="card-subtitle mb-2 text-muted">{{ beer.style }}</h6>

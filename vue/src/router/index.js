@@ -8,6 +8,7 @@ import store from "../store/index";
 import Breweries from "../views/Breweries.vue";
 import BreweryDetails from "../views/BreweryDetails.vue";
 import Beers from "../views/Beers.vue";
+import BeerDetails from "../views/BeerDetails.vue";
 
 Vue.use(Router);
 
@@ -80,6 +81,16 @@ const router = new Router({
         requiresAuth: false,
       },
     },
+    {
+      path: '/beers/:id',
+      name: "BeerDetails",
+      component: BeerDetails,
+      meta: {
+        requiresAuth: false,
+      },
+    },
+    
+
     {
       path: "*",
       redirect: "/",
