@@ -1,5 +1,5 @@
 <template>
-    <div class="brewery-details">
+    <div class="container brewery-details">
         <h1>{{brewery.name}}</h1>
         <h2>This is the brewery landing page</h2>
         <h3>{{this.$route.params.id}}</h3>
