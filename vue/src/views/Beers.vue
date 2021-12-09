@@ -1,12 +1,24 @@
 <template>
-  <div class="beers">
-    <ul>
-            <beer-list-item 
-                v-for="beer of beers"
-                v-bind:key="beer.id"
-                v-bind:beer="beer"
-                />
-    </ul>
+  <div class="beers container">
+    <table class="beerTable">
+      <thead>
+      <tr>
+        <th>Beer Name</th>
+        <th>ABV</th>
+        <th>Beer Style</th>
+        <th>Availability</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr v-for="beer in beers" v-bind:key="beer.id">
+        <td>{{beer.name}}</td>
+        <td>{{beer.abv}}</td>
+        <td>{{beer.style}}</td>
+        <td>{{beer.availability}}</td>
+      </tr>
+      </tbody>
+    <beer-list-item />
+    </table>
   </div>
 </template>
 

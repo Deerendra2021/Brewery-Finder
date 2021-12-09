@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class="card text-primary bg-info mb-3 text-center" style="width: 18rem">
+  <div class="beerCards">
+    <div class="card text-primary bg-info mb-3 text-center" style="width: 25rem">
       <div class="card-body">
           <img src="../img/BeerIcon.png" alt="Beer Icon" class="beerIcon" />
         <h5 class="card-title">{{ beer.name }}</h5>
@@ -27,12 +27,15 @@ export default {
 <style>
 
 .beerIcon {
-    max-width: 10px;
+    max-width: 70px;
     max-height: auto;
+    float: left;
+    
 }
 
 .card {
   opacity: .7;
+  text-align: center;
 }
 
 </style>
