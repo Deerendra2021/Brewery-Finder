@@ -46,7 +46,7 @@ export default {
 <style>
 
 .beer-details {
-
+    
     color: white;
 
     padding-top: 30px;
