@@ -9,15 +9,15 @@
     <p>____________________<p>
     <br />
     <h3>Beer Reviews</h3>
-    <!-- <div class="list-group">
+    <div class="list-group" v-for="review in reviews" v-bind:key="review.id">
         <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
             <div class="d-flex w-100 justify-content-between">
                 <h5 class="mb-1">{{reviews.name}}</h5>
-                <small>{{reviews.rating}}</small>
+                <small>{{reviews.rating}}/5</small>
             </div>
             <p class="mb-1">{{reviews.description}}</p>
         </a>
-    </div> -->
+    </div>
 
 </div>
   
@@ -33,7 +33,7 @@ export default {
     data(){
         return {
             beer: [],
-            reveiws: []
+            reviews: []
         }
     },
     
@@ -55,10 +55,10 @@ export default {
 
            let reviewId = parseInt(this.$route.params.id);
 
-           ReviewService.getReviewById(reviewId)
+           ReviewService.getReviewsById(reviewId)
            .then(response => {
 
-               this.reveiws = response.data;
+               this.reviews = response.data;
            })
 
            .catch(error => {
