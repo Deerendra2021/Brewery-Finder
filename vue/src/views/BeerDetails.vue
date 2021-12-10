@@ -18,6 +18,26 @@
             <p class="mb-1">{{review.description}}</p>
         </a>
     </div>
+    <form>
+        <div class="form-group">
+            <label for="reviewerName">Your Name: </label>
+            <input type="text" class="form-control" id="reviewerName" name="reviewerName" placeholder="Your Name Here">
+        </div>
+        <div class="form-group">
+            <label for="rating">Rate 1 through 5, 5 being the best and 1 being the worst: </label>
+            <select class="form-control" id="rating">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="reviewDescription">Add a written review: </label>
+            <textarea class="form-control" id="reviewDescription" rows="4" placeholder="What did you like or dislike about this beer?"></textarea>
+        </div>
+    </form>
 
 </div>
   
