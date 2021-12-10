@@ -3,13 +3,13 @@
 
     <h1>{{beer.name}}</h1>
     <h2>{{beer.style}}</h2>
+    <h2>{{beer.abv}}% ABV</h2>
     <h2>{{beer.availability}}</h2>
-    <h2>{{beer.abv}}</h2>
     <br />
     <p>____________________<p>
     <br />
     <h3>Beer Reviews</h3>
-    <div class="list-group card-deck" v-for="review in reviews" v-bind:key="review.id">
+    <div class="list-group card-deck w-50" v-for="review in reviews" v-bind:key="review.id">
         <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
             <div class="d-flex w-100 justify-content-between">
                 <h5 class="mb-1">{{review.name}}</h5>
