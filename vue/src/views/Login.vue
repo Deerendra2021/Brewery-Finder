@@ -35,7 +35,7 @@
           v-model="user.password"
           required />
       </div>
-      <div class="form-group">
+      <div class="form-group register">
         <router-link :to="{ name: 'register' }">Need an account?</router-link>
       </div>
       <button class="btn btn-primary" type="submit">Sign in</button>
@@ -87,5 +87,17 @@ export default {
 </script>
 
 <style>
+  #login {
+    min-height: 80vh;
+  }
 
+  .register {
+    background-color: #f1f0f0a2;
+    border-radius: 4px;
+  }
+
+  .h3 {
+     background-color: #222222a2;
+     border-radius: 4px;
+  }
 </style>
