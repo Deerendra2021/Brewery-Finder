@@ -18,7 +18,9 @@
             <p class="mb-1">{{review.description}}</p>
         </a>
     </div>
-    <form>
+    <br/>
+    <button type="button" class="btn btn-secondary" v-on:click="showForm = true" v-if="!showForm">Add New Review</button>
+    <form v-if="showForm">
         <div class="form-group">
             <label for="reviewerName">Your Name: </label>
             <input type="text" class="form-control" id="reviewerName" name="reviewerName" placeholder="Your Name Here">
@@ -37,6 +39,9 @@
             <label for="reviewDescription">Add a written review: </label>
             <textarea class="form-control" id="reviewDescription" rows="4" placeholder="What did you like or dislike about this beer?"></textarea>
         </div>
+        <div class="d-flex justify-content-center">
+            <button class="btn btn-success" type="submit">Submit Review</button>
+        </div>
     </form>
 
 </div>
@@ -53,7 +58,8 @@ export default {
     data(){
         return {
             beer: [],
-            reviews: []
+            reviews: [],
+            showForm: false,
         }
     },
     
@@ -95,7 +101,6 @@ export default {
 <style>
 
 .beer-details {
-    
     color: white;
 
     padding-top: 30px;
@@ -108,7 +113,6 @@ export default {
 
     margin-top: 9vh;
     background: center, #222222a2;
-
 }
 
 </style>
