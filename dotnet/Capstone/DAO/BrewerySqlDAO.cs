@@ -11,10 +11,6 @@ namespace Capstone.DAO
     {
         private string connectionString;
 
-        private readonly string sqlSelectBreweryById = "SELECT brewery_id, name, address1, city, state, zip, phone, description" +
-            " FROM brewery" +
-            " WHERE brewery_id = @brewery_id";
-
         public BrewerySqlDAO(string connectionString)
         {
             this.connectionString = connectionString;
