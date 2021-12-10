@@ -3,13 +3,14 @@
 
     <h1>{{beer.name}}</h1>
     <h2>{{beer.style}}</h2>
-    <h2>{{beer.abv}}% ABV</h2>
+    <h2 v-if="beer.abv != ''">{{beer.abv}}% ABV</h2>
     <h2>{{beer.availability}}</h2>
     <br />
     <p>____________________<p>
     <br />
     <section id="reviewSection" v-if="reviews.length > 0">
         <h3>Beer Reviews</h3>
+        <h5>Average Rating: {{averageRating}}</h5>
         <br />
         <div class="list-group card-deck w-100 d-flex justify-content-center" v-for="review in reviews" v-bind:key="review.id">
             <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
@@ -101,7 +102,18 @@ export default {
 
            });
    
+        },
+
+    computed: {
+        averageRating() {
+            let sum = 0;
+            this.reviews.forEach(r => {
+                sum += r.rating;
+            })
+
+            return sum / this.reviews.length;
         }
+    }
 
 }
 </script>
