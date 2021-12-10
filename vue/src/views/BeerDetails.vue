@@ -8,19 +8,22 @@
     <br />
     <p>____________________<p>
     <br />
-    <h3>Beer Reviews</h3>
-    <div class="list-group card-deck w-50" v-for="review in reviews" v-bind:key="review.id">
-        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
-            <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">{{review.name}}</h5>
-                <small>{{review.rating}}/5</small>
-            </div>
-            <p class="mb-1">{{review.description}}</p>
-        </a>
-    </div>
-    <br/>
-    <button type="button" class="btn btn-secondary" v-on:click="showForm = true" v-if="!showForm">Add New Review</button>
-    <form v-if="showForm">
+    <section id="reviewSection" class="d-flex justify-content-center" v-if="reviews.length > 0">
+        <h3>Beer Reviews</h3>
+        <div class="list-group card-deck w-50" v-for="review in reviews" v-bind:key="review.id">
+            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">{{review.name}}</h5>
+                    <small>{{review.rating}}/5</small>
+                </div>
+                <p class="mb-1">{{review.description}}</p>
+            </a>
+        </div>
+    </section>
+    <section v-else>
+        <h3>No Reviews Yet</h3>            
+    </section>
+    <form>
         <div class="form-group">
             <label for="reviewerName">Your Name: </label>
             <input type="text" class="form-control" id="reviewerName" name="reviewerName" placeholder="Your Name Here">
@@ -113,6 +116,18 @@ export default {
 
     margin-top: 9vh;
     background: center, #222222a2;
+<<<<<<< HEAD
+=======
+}
+
+#reviewSection {
+    width: 100%;
+    display: flex;
+    justify-content: Center;
+    align-items: center;
+    flex-direction: column;
+
+>>>>>>> 7237a7ac5208d0852ae7fb7c9aba3c166e2b3005
 }
 
 </style>
