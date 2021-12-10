@@ -49,7 +49,7 @@ CREATE TABLE beer (
 )
 
 CREATE TABLE reviews (
-	review_id int NOT NULL,
+	review_id int IDENTITY(1,1) NOT NULL,
 	beer_id int NOT NULL,
 	user_id int NOT NULL,
 	name varchar(100) NOT NULL,
@@ -2781,6 +2781,9 @@ INSERT INTO beer (beer_id, name, brewery_id, style, availability, abv) VALUES(
 INSERT INTO beer (beer_id, name, brewery_id, style, availability, abv) VALUES(
 240765,'Heather Wood',1513,'Herb and Spice Beer','Rotating',5.8
 );
+
+SET IDENTITY_INSERT reviews ON;
+
 INSERT INTO reviews (review_id, beer_id, user_id, name, rating, description)
 VALUES (0001, 257876, 1, 'Kevin Teos', 3, 'Not sure if it is because ofice kegs hit different at 4:30 on Friday but this is an exceptional hoppy/juicy beer.');
 
@@ -2834,5 +2837,7 @@ VALUES (0017, 289014, 1, 'Kevin Teos', 4, 'Easy drinking, I like it.');
 
 INSERT INTO reviews (review_id, beer_id, user_id, name, rating, description)
 VALUES (0018, 289014, 2, 'Matt Eland', 4, 'Good one. Nice hoppy bitter aftertaste.');
+
+SET IDENTITY_INSERT reviews OFF;
 
 COMMIT;
