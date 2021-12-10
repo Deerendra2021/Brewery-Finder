@@ -11,5 +11,4 @@ export default {
     addNewReview() {
         return axios.post('/Reviews');
     }
-
 }

@@ -14,6 +14,7 @@
       microbrewery everyone has been talking about easier than ever.
       <br/>
       <br/>
+      <br/>
       ____________________
     </p>
     <h4>Why use Next Brew?</h4>
@@ -62,7 +63,8 @@ export default {
 
   color: white;
   min-height: 74vh;
-  margin-top: 9vh;
+  margin-top: 65px;
+  margin-bottom: 65px;
 }
 
 .welcome {
