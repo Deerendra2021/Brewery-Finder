@@ -3,7 +3,7 @@
 
     <h1>{{beer.name}}</h1>
     <h2>{{beer.style}}</h2>
-    <h2>{{beer.abv}}% ABV</h2>
+    <h2 v-if="beer.abv != ''">{{beer.abv}}% ABV</h2>
     <h2>{{beer.availability}}</h2>
     <br />
     <p>____________________<p>
@@ -116,8 +116,6 @@ export default {
 
     margin-top: 9vh;
     background: center, #222222a2;
-<<<<<<< HEAD
-=======
 }
 
 #reviewSection {
@@ -127,7 +125,6 @@ export default {
     align-items: center;
     flex-direction: column;
 
->>>>>>> 7237a7ac5208d0852ae7fb7c9aba3c166e2b3005
 }
 
 </style>
