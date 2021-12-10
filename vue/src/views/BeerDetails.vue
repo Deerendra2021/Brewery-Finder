@@ -8,16 +8,44 @@
     <br />
     <p>____________________<p>
     <br />
-    <h3>Beer Reviews</h3>
-    <div class="list-group card-deck w-50" v-for="review in reviews" v-bind:key="review.id">
-        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
-            <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">{{review.name}}</h5>
-                <small>{{review.rating}}/5</small>
-            </div>
-            <p class="mb-1">{{review.description}}</p>
-        </a>
-    </div>
+    <section id="reviewSection" class="d-flex justify-content-center" v-if="reviews.length > 0">
+        <h3>Beer Reviews</h3>
+        <div class="list-group card-deck w-50" v-for="review in reviews" v-bind:key="review.id">
+            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">{{review.name}}</h5>
+                    <small>{{review.rating}}/5</small>
+                </div>
+                <p class="mb-1">{{review.description}}</p>
+            </a>
+        </div>
+    </section>
+    <section v-else>
+        <h3>No Reviews Yet</h3>            
+    </section>
+    <form>
+        <div class="form-group">
+            <label for="reviewerName">Your Name: </label>
+            <input type="text" class="form-control" id="reviewerName" name="reviewerName" placeholder="Your Name Here">
+        </div>
+        <div class="form-group">
+            <label for="rating">Rate 1 through 5, 5 being the best and 1 being the worst: </label>
+            <select class="form-control" id="rating">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="reviewDescription">Add a written review: </label>
+            <textarea class="form-control" id="reviewDescription" rows="4" placeholder="What did you like or dislike about this beer?"></textarea>
+        </div>
+        <div class="d-flex justify-content-center">
+            <button class="btn btn-success" type="submit">Submit Review</button>
+        </div>
+    </form>
 
 </div>
   
@@ -33,7 +61,8 @@ export default {
     data(){
         return {
             beer: [],
-            reviews: []
+            reviews: [],
+            showForm: false,
         }
     },
     
@@ -75,7 +104,6 @@ export default {
 <style>
 
 .beer-details {
-    
     color: white;
 
     padding-top: 30px;
@@ -88,7 +116,18 @@ export default {
 
     margin-top: 9vh;
     background: center, #222222a2;
+<<<<<<< HEAD
+=======
+}
 
+#reviewSection {
+    width: 100%;
+    display: flex;
+    justify-content: Center;
+    align-items: center;
+    flex-direction: column;
+
+>>>>>>> 7237a7ac5208d0852ae7fb7c9aba3c166e2b3005
 }
 
 </style>

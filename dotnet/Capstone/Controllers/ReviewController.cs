@@ -27,5 +27,17 @@ namespace Capstone.Controllers
         {
             return Ok(reviews.GetReviewsForBeer(beerId));
         }
+
+        [HttpPost("{beerId}")]
+        [Authorize]
+        public ActionResult PostReviewsByBeerId(Review review)
+        {
+            int userId = int.Parse(this.User.FindFirst("sub").Value);
+
+            Review newReview = this.reviews.PostReviewForBeer(userId, review);
+
+            return Created("/reviews" + newReview.ReviewId, newReview);
+        }
     }
+
 }

@@ -7,6 +7,9 @@ export default {
     },
     getReviewsById(id) {
         return axios.get(`/Reviews/${id}`);
+    },
+    addNewReview() {
+        return axios.post('/Reviews');
     }
 
 }
