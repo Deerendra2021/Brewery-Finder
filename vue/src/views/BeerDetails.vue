@@ -26,7 +26,9 @@
         <!-- <p class="d-flex justify-content-center">Please log in to add a new review.</p> Need this code once login is done-->           
     </section>
     <div class="d-flex justify-content-center">
-        <button type="button" class="btn btn-secondary" v-on:click="showForm = true" v-if="!showForm">Add New Reveiw</button>
+        <button type="button" class="btn btn-secondary" v-on:click="showForm = true" 
+                v-if="!showForm && user != true">
+                Add New Reveiw</button>
     </div>
     <form v-if="showForm">
         <div class="form-group">
@@ -70,38 +72,45 @@ export default {
             showForm: false,
         }
     },
-    
-        created(){
-            
-           let beerId = parseInt(this.$route.params.id);
 
-           BeerService.getBeerById(beerId)
-           .then(response => {
+    computed: {
+        user() {
 
-               this.beer = response.data;
-           })
-
-           .catch(error => {
-
-               console.log("Fail to load Beer", error.response);
-
-           });
-
-           let reviewId = parseInt(this.$route.params.id);
-
-           ReviewService.getReviewsById(reviewId)
-           .then(response => {
-
-               this.reviews = response.data;
-           })
-
-           .catch(error => {
-
-               console.log("Fail to load Reviews", error.response);
-
-           });
-   
+            return Object.keys(this.$store.state.user).length === 0;
         }
+    },
+    
+    created(){
+        
+        let beerId = parseInt(this.$route.params.id);
+
+        BeerService.getBeerById(beerId)
+        .then(response => {
+
+            this.beer = response.data;
+        })
+
+        .catch(error => {
+
+            console.log("Fail to load Beer", error.response);
+
+        });
+
+        let reviewId = parseInt(this.$route.params.id);
+
+        ReviewService.getReviewsById(reviewId)
+        .then(response => {
+
+            this.reviews = response.data;
+        })
+
+        .catch(error => {
+
+            console.log("Fail to load Reviews", error.response);
+
+        });
+
+    }
 
 }
 </script>
