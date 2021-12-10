@@ -33,7 +33,7 @@
           v-model="user.confirmPassword"
           required />
       </div>
-      <div class="form-group">
+      <div class="form-group login">
         <router-link :to="{ name: 'login' }">Have an account?</router-link>
       </div>
       <button class="btn btn-primary" type="submit">
@@ -94,21 +94,17 @@ export default {
 </script>
 
 <style>
-  /* .form-group {
-    width: 75%;
-    justify-content: center;
-    justify-self: center;
-    justify-items: center;
-    align-content: center;
-    align-self: center;
-    align-items: center;
+  #register {
+    min-height: 80vh;
   }
-  .form-register {
-    justify-content: center;
-    justify-self: center;
-    justify-items: center;
-        align-content: center;
-    align-self: center;
-    align-items: center;
-  } */
+
+  .login {
+    background-color: #f1f0f0a2;
+    border-radius: 4px;
+  }
+
+  .h3 {
+     background-color: #222222a2;
+     border-radius: 4px;
+  }
 </style>
