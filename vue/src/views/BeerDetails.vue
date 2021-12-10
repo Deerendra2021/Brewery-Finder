@@ -8,9 +8,10 @@
     <br />
     <p>____________________<p>
     <br />
-    <section id="reviewSection" class="d-flex justify-content-center" v-if="reviews.length > 0">
+    <section id="reviewSection" v-if="reviews.length > 0">
         <h3>Beer Reviews</h3>
-        <div class="list-group card-deck w-50" v-for="review in reviews" v-bind:key="review.id">
+        <br />
+        <div class="list-group card-deck w-100 d-flex justify-content-center" v-for="review in reviews" v-bind:key="review.id">
             <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
                 <div class="d-flex w-100 justify-content-between">
                     <h5 class="mb-1">{{review.name}}</h5>
@@ -21,9 +22,13 @@
         </div>
     </section>
     <section v-else>
-        <h3>No Reviews Yet</h3>            
+        <h3 class="d-flex justify-content-center">No Reviews Yet</h3>
+        <!-- <p class="d-flex justify-content-center">Please log in to add a new review.</p> Need this code once login is done-->           
     </section>
-    <form>
+    <div class="d-flex justify-content-center">
+        <button type="button" class="btn btn-secondary" v-on:click="showForm = true" v-if="!showForm">Add New Reveiw</button>
+    </div>
+    <form v-if="showForm">
         <div class="form-group">
             <label for="reviewerName">Your Name: </label>
             <input type="text" class="form-control" id="reviewerName" name="reviewerName" placeholder="Your Name Here">
@@ -116,8 +121,6 @@ export default {
 
     margin-top: 9vh;
     background: center, #222222a2;
-<<<<<<< HEAD
-=======
 }
 
 #reviewSection {
@@ -126,8 +129,6 @@ export default {
     justify-content: Center;
     align-items: center;
     flex-direction: column;
-
->>>>>>> 7237a7ac5208d0852ae7fb7c9aba3c166e2b3005
 }
 
 </style>
