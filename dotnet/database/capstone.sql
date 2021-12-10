@@ -66,7 +66,7 @@ INSERT INTO users (username, password_hash, salt, user_role) VALUES ('user','Jg4
 INSERT INTO users (username, password_hash, salt, user_role) VALUES ('admin','YhyGVQ+Ch69n4JMBncM4lNF/i9s=', 'Ar/aB2thQTI=','admin');
 
 INSERT INTO brewery (brewery_id, name, address1, city, state, zip, phone, description) 
-VALUES (47632, '2 Tones Brewing Company', '4539 E Broad St', 'Whitehall', 'OH', '43213', '614-762-6281', 'Brand new brewery started by two college roommates, Anthony and Tony, hence the name: 2 Tones. Taproom located in Whitehall, about 15 minutes east of downtown Columbus.For food options, there are food trucks that come to the taproom to provide yummy eats almost daily.');
+VALUES (47632, '2 Tones Brewing Company', '4539 E Broad St', 'Whitehall', 'OH', '43213', '614-762-6281', 'Brand new brewery started by two college roommates, Anthony and Tony, hence the name: 2 Tones. Taproom located in Whitehall, about 15 minutes east of downtown Columbus. For food options, there are food trucks that come to the taproom to provide yummy eats almost daily.');
 
 INSERT INTO brewery (brewery_id, name, address1, city, state, zip, phone, description) 
 VALUES (1037, 'Barley''s Brewing Company', '467 N High St', 'Columbus', 'OH', '43215',  '614-288-2537', 'Been around for 29 years, opened in 1992. Proudly brew ale the old fashioned way, cask-conditioned. One of very few pubs in the US and across the world to still use this method even afterthe invention of the keg. Located across the street from the Arnold Statue just south of the Short North Arts District.');
