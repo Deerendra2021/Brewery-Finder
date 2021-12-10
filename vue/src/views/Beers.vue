@@ -4,8 +4,8 @@
       <thead>
       <tr class="tableHeading">
         <th>Beer Name</th>
-        <th>Availability</th>
         <th>Beer Style</th>
+        <th>Availability</th>
         <th>ABV</th>
       </tr>
       </thead>
@@ -59,6 +59,10 @@ export default {
 
 <style>
 
+.beers {
+  padding-top: 10vh;
+}
+
 .beerTable {
   background-color: #222222a2;
   text-align: center;
@@ -68,6 +72,12 @@ export default {
 
 .tableHeading {
   font-size: 24px;
+  color: #21646e;
+  background-color: #ffecd1bb;
+}
+
+.table-hover tbody tr:hover td{
+  background-color: #15616d8c;
 }
 
 </style>
