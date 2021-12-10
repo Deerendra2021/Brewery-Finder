@@ -20,6 +20,9 @@ namespace Capstone.DAO
             "FROM reviews " +
             "WHERE beer_id = @beerId;";
 
+        const string sqlAddeview = "INSERT INTO reviews (review_id, beer_id, user_id, name, rating, description)" +
+            "VALUES(@reviewId, @beerId, @userId, @name, @rating, @description)";
+
         public ICollection<Review> GetReviewsForBeer(int beerId)
         {
             List<Review> reviews = new List<Review>();
@@ -45,6 +48,35 @@ namespace Capstone.DAO
 
             }
             return reviews;
+        }
+
+
+        public Review PostReviewForBeer(int userId, Review addReview)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+
+                const string sqlAddeview = "INSERT INTO reviews (beer_id, user_id, name, rating, description) " +
+                "VALUES (@beerId, @userId, @name, @rating, @description)";
+
+                using (SqlCommand cmd = new SqlCommand(sqlAddeview, conn))
+                {
+                    cmd.Parameters.AddWithValue("@beerId", addReview.BeerId);
+                    cmd.Parameters.AddWithValue("@userId", userId);
+                    cmd.Parameters.AddWithValue("@name", addReview.Name);
+                    cmd.Parameters.AddWithValue("@rating", addReview.Rating);
+                    cmd.Parameters.AddWithValue("@description", addReview.Description);
+
+                    int newId = Convert.ToInt32(cmd.ExecuteScalar());
+
+                    addReview.ReviewId = newId;
+                    
+                }
+
+            }
+
+            return addReview;
         }
 
         private Review LoadReviewFromReader(SqlDataReader reader)
