@@ -29,14 +29,14 @@
     <div class="d-flex justify-content-center">
         <button type="button" class="btn btn-secondary" v-on:click="showForm = true" v-if="!showForm">Add New Reveiw</button>
     </div>
-    <form v-if="showForm">
+    <form v-if="showForm" v-on:click.prevent="addNewReview()">
         <div class="form-group">
             <label for="reviewerName">Your Name: </label>
-            <input type="text" class="form-control" id="reviewerName" name="reviewerName" placeholder="Your Name Here">
+            <input type="text" class="form-control" id="reviewerName" name="reviewerName" placeholder="Your Name Here" v-model="newReview.name">
         </div>
         <div class="form-group">
             <label for="rating">Rate 1 through 5, 5 being the best and 1 being the worst: </label>
-            <select class="form-control" id="rating">
+            <select class="form-control" id="rating" v-model="newReview.rating">
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
@@ -46,7 +46,7 @@
         </div>
         <div class="form-group">
             <label for="reviewDescription">Add a written review: </label>
-            <textarea class="form-control" id="reviewDescription" rows="4" placeholder="What did you like or dislike about this beer?"></textarea>
+            <textarea class="form-control" id="reviewDescription" rows="4" placeholder="What did you like or dislike about this beer?" v-model="newReview.description"></textarea>
         </div>
         <div class="d-flex justify-content-center">
             <button class="btn btn-success" type="submit">Submit Review</button>
@@ -69,6 +69,13 @@ export default {
             beer: [],
             reviews: [],
             showForm: false,
+            newReview: {
+                beerId: parseInt(this.$route.params.id),
+                userId: '',
+                name: '',
+                rating: 0,
+                description: '',
+            },
         }
     },
     
@@ -113,7 +120,25 @@ export default {
 
             return sum / this.reviews.length;
         }
-    }
+    },
+
+    methods: {
+
+        addNewReview(){
+
+            ReviewService.addNewReview(this.newReview)
+            .then(response => {
+                
+                console.log(response);
+
+            })
+            .catch(error => {
+
+                console.log("Could not save the new review", error.response);
+            });
+
+        },
+    },
 
 }
 </script>
