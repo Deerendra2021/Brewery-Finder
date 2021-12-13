@@ -27,16 +27,18 @@
         <!-- <p class="d-flex justify-content-center">Please log in to add a new review.</p> Need this code once login is done-->           
     </section>
     <div class="d-flex justify-content-center">
-        <button type="button" class="btn btn-secondary" v-on:click="showForm = true" v-if="!showForm">Add New Reveiw</button>
+        <button type="button" class="btn btn-secondary" v-on:click="showForm = true" 
+                v-if="!showForm && user != true">
+                Add New Reveiw</button>
     </div>
-    <form v-if="showForm" v-on:click.prevent="addNewReview()">
+    <form v-if="showForm" v-on:submit.prevent="addNewReview()">
         <div class="form-group">
             <label for="reviewerName">Your Name: </label>
             <input type="text" class="form-control" id="reviewerName" name="reviewerName" placeholder="Your Name Here" v-model="newReview.name">
         </div>
         <div class="form-group">
             <label for="rating">Rate 1 through 5, 5 being the best and 1 being the worst: </label>
-            <select class="form-control" id="rating" v-model="newReview.rating">
+            <select class="form-control" id="rating" v-model.number="newReview.rating">
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
@@ -71,47 +73,19 @@ export default {
             showForm: false,
             newReview: {
                 beerId: parseInt(this.$route.params.id),
-                userId: '',
+                userId: this.$store.state.user.userId,
                 name: '',
                 rating: 0,
                 description: '',
             },
         }
     },
-    
-        created(){
-            
-           let beerId = parseInt(this.$route.params.id);
-
-           BeerService.getBeerById(beerId)
-           .then(response => {
-
-               this.beer = response.data;
-           })
-
-           .catch(error => {
-
-               console.log("Fail to load Beer", error.response);
-
-           });
-
-           let reviewId = parseInt(this.$route.params.id);
-
-           ReviewService.getReviewsById(reviewId)
-           .then(response => {
-
-               this.reviews = response.data;
-           })
-
-           .catch(error => {
-
-               console.log("Fail to load Reviews", error.response);
-
-           });
-   
-        },
 
     computed: {
+        user() {
+
+            return Object.keys(this.$store.state.user).length === 0;
+        },
         averageRating() {
             let sum = 0;
             this.reviews.forEach(r => {
@@ -121,20 +95,54 @@ export default {
             return sum / this.reviews.length;
         }
     },
+    
+    created(){
+        
+        let beerId = parseInt(this.$route.params.id);
+
+        BeerService.getBeerById(beerId)
+        .then(response => {
+
+            this.beer = response.data;
+        })
+
+        .catch(error => {
+
+            console.log("Fail to load Beer", error.response);
+
+        });
+
+        let reviewId = parseInt(this.$route.params.id);
+
+        ReviewService.getReviewsById(reviewId)
+        .then(response => {
+
+            this.reviews = response.data;
+        })
+
+        .catch(error => {
+
+            console.log("Fail to load Reviews", error.response);
+
+           });
+   
+        },
 
     methods: {
 
         addNewReview(){
 
             ReviewService.addNewReview(this.newReview)
-            .then(response => {
-                
-                console.log(response);
+            .then(response => {              
+
+                this.reviews.push(response.data);
+
+                this.$router.push({name: 'BreweryDetails', params: {id: response.data.id}});
 
             })
             .catch(error => {
 
-                console.log("Could not save the new review", error.response);
+                console.error("Could not save the new review", error.response);
             });
 
         },
