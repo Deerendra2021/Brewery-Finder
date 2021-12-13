@@ -5,7 +5,7 @@
           <img src="../img/BeerIcon.png" alt="Beer Icon" class="beerIcon" />
         <h5 class="card-title">{{ beer.name }}</h5>
         <small v-if="beer.abv != ''">{{ beer.abv }} ABV</small>
-        <h6 class="card-subtitle mb-2 text-muted">{{ beer.style }}</h6>
+        <h6 class="card-subtitle mb-2 text-center">{{ beer.style }}</h6>
         <p class="card-text">{{ beer.availability }}</p>
         <router-link tag="a" class="card-link"
           v-bind:to="{name: 'BeerDetails', params: {id: beer.id} }">
