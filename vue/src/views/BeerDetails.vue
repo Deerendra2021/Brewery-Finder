@@ -31,7 +31,7 @@
                 v-if="!showForm && user != true">
                 Add New Reveiw</button>
     </div>
-    <form v-if="showForm" v-on:submit.prevent="addNewReview()">
+    <form v-if="showForm" v-on:submit.prevent="addNewReview(showForm=false)">
         <div class="form-group">
             <label for="reviewerName">Your Name: </label>
             <input type="text" class="form-control" id="reviewerName" name="reviewerName" placeholder="Your Name Here" v-model="newReview.name">
@@ -51,7 +51,7 @@
             <textarea class="form-control" id="reviewDescription" rows="4" placeholder="What did you like or dislike about this beer?" v-model="newReview.description"></textarea>
         </div>
         <div class="d-flex justify-content-center">
-            <button class="btn btn-success" type="submit" v-on:click="showform = false">Submit Review</button>
+            <button class="btn btn-success" type="submit">Submit Review</button>
         </div>
     </form>
 
