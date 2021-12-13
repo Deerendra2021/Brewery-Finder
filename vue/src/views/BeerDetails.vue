@@ -51,7 +51,7 @@
             <textarea class="form-control" id="reviewDescription" rows="4" placeholder="What did you like or dislike about this beer?" v-model="newReview.description"></textarea>
         </div>
         <div class="d-flex justify-content-center">
-            <button class="btn btn-success" type="submit">Submit Review</button>
+            <button class="btn btn-success" type="submit" v-on:click="showform = false">Submit Review</button>
         </div>
     </form>
 
@@ -137,7 +137,14 @@ export default {
 
                 this.reviews.push(response.data);
 
-                this.$router.push({name: 'BreweryDetails', params: {id: response.data.id}});
+                this.newReview = {
+
+                    beerId: parseInt(this.$route.params.id),
+                    userId: this.$store.state.user.userId,
+                    name: '',
+                    rating: 0,
+                    description: '',
+                }
 
             })
             .catch(error => {
