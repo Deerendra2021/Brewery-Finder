@@ -9,6 +9,7 @@ import Breweries from "../views/Breweries.vue";
 import BreweryDetails from "../views/BreweryDetails.vue";
 import Beers from "../views/Beers.vue";
 import BeerDetails from "../views/BeerDetails.vue";
+import UserProfile from "../views/UserProfile.vue";
 
 Vue.use(Router);
 
@@ -89,7 +90,14 @@ const router = new Router({
         requiresAuth: false,
       },
     },
-    
+    {
+      path: '/user/:id',
+      name: "UserProfile",
+      component: UserProfile,
+      meta: {
+        requiresAuth: true
+      }
+    },    
 
     {
       path: "*",

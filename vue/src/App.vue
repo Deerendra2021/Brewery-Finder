@@ -27,6 +27,13 @@
             v-bind:to="{ name: 'beers' }">
             Beers</router-link>
         </li>
+                <li class="nav-item h5">
+          <router-link tag="a" class="nav-link"
+            v-bind:class="{' active': $route.path == '/user' }" 
+            v-bind:to="{ name: 'UserProfile', params: {id: user.userId}}">
+            My Profile</router-link>
+        </li>
+
       </ul>
       <div id="nav">
         <!--<router-link class="nav-item" v-bind:to="{ name: 'home' }">
@@ -52,7 +59,7 @@
       </div>  
     </nav>
     <router-view />
-    <footer class="footerText">
+    <footer class="footerText position-relative-bottom">
       <small>
         By visiting this page, you agree that you are at least 21 years old and of legal drinking age. Please drink responsibly.
       </small>
@@ -62,7 +69,12 @@
 
 <script>
 export default {
-  
+
+   computed: {
+     user() {
+       return this.$store.state.user;
+   },
+   }  
 }
 </script>
 

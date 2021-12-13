@@ -11,6 +11,7 @@ namespace Capstone.DAO
         private readonly string connectionString;
 
         private string sqlGetUser = "SELECT user_id, username, password_hash, salt, user_role FROM users WHERE username = @username";
+        private string sqlGetUserById = "SELECT user_id, username, password_hash, salt, user_role FROM users WHERE user_id = @id";
         private string sqlAddUser = "INSERT INTO users (username, password_hash, salt, user_role) VALUES " +
             "(@username, @password_hash, @salt, @user_role)";
 
@@ -29,6 +30,27 @@ namespace Capstone.DAO
 
                 SqlCommand cmd = new SqlCommand(sqlGetUser, conn);
                 cmd.Parameters.AddWithValue("@username", username);
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.HasRows && reader.Read())
+                {
+                    returnUser = GetUserFromReader(reader);
+                }
+            }
+
+            return returnUser;
+        }
+
+        public User GetUserById(int userId)
+        {
+            User returnUser = null;
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+
+                SqlCommand cmd = new SqlCommand(sqlGetUserById, conn);
+                cmd.Parameters.AddWithValue("@id", userId);
                 SqlDataReader reader = cmd.ExecuteReader();
 
                 if (reader.HasRows && reader.Read())
