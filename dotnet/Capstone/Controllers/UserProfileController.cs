@@ -12,28 +12,27 @@ namespace Capstone.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    public class UserController : ControllerBase
+    public class UserProfileController : ControllerBase
     {
-        private readonly IUserDAO user;
+        private readonly IUserProfileDAO userProfile;
 
-        public UserController(IUserDAO users)
+        public UserProfileController(IUserProfileDAO userPro)
         {
-            this.user = users;
+            this.userProfile = userPro;
         }
 
         [HttpGet("{userId}")]
         [AllowAnonymous]
-        public ActionResult GetUser(int userId)
+        public ActionResult GetUserProfile(int userId)
         {
-            User returnUser = user.GetUserById(userId);
+            UserProfile profile = userProfile.GetUserProfile(userId);
 
-            if (returnUser == null)
+            if (profile == null)
             {
                 return NotFound();
             }
 
-            return Ok(returnUser);
+            return Ok(profile);
         }
-
     }
 }

@@ -25,6 +25,16 @@ CREATE TABLE users (
 	CONSTRAINT PK_user PRIMARY KEY (user_id)
 )
 
+CREATE TABLE user_profile (
+	user_id int NOT NULL,
+	first_name varchar(50) NOT NULL,
+	last_name varchar(50) NOT NULL,
+	favorite_brewery varchar(255),
+	favorite_beer varchar(255)
+	CONSTRAINT pk_user_profile PRIMARY KEY (user_id)
+	CONSTRAINT fk_user_profile_users FOREIGN KEY (user_id) REFERENCES users(user_id)
+)
+
 CREATE TABLE brewery (
 	brewery_id int NOT NULL,
 	name varchar(100) NOT NULL,
@@ -64,6 +74,9 @@ CREATE TABLE reviews (
 -- These values should not be kept when going to Production
 INSERT INTO users (username, password_hash, salt, user_role) VALUES ('user','Jg45HuwT7PZkfuKTz6IB90CtWY4=','LHxP4Xh7bN0=','user');
 INSERT INTO users (username, password_hash, salt, user_role) VALUES ('admin','YhyGVQ+Ch69n4JMBncM4lNF/i9s=', 'Ar/aB2thQTI=','admin');
+
+INSERT INTO user_profile (user_id, first_name, last_name, favorite_brewery, favorite_beer) VALUES (1, 'Test', 'User', 'CBC, Seventh Son', 'CBC IPA, Proliferous')
+INSERT INTO user_profile (user_id, first_name, last_name, favorite_brewery, favorite_beer) VALUES (2, 'Admin', 'User', '2 Tones, Sideswipe', '2 Tones IPA, Fisticuffs')
 
 INSERT INTO brewery (brewery_id, name, address1, city, state, zip, phone, description) 
 VALUES (47632, '2 Tones Brewing Company', '4539 E Broad St', 'Whitehall', 'OH', '43213', '614-762-6281', 'Brand new brewery started by two college roommates, Anthony and Tony, hence the name: 2 Tones. Taproom located in Whitehall, about 15 minutes east of downtown Columbus. For food options, there are food trucks that come to the taproom to provide yummy eats almost daily.');

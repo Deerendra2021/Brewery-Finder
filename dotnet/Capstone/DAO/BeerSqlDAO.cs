@@ -10,16 +10,17 @@ namespace Capstone.DAO
     public class BeerSqlDAO : IBeerDAO
     {
         private string connectionString;
+        public BeerSqlDAO(string connectionString)
+        {
+            this.connectionString = connectionString;
+        }
+
         const string sqlSelectAllBeer = "SELECT beer_id, name, brewery_id, style, availability, abv" +
                                     " FROM beer";
 
         const string sqlSelectBeerById = "SELECT beer_id, name, brewery_id, style, availability, abv" +
             " FROM beer" +
             " WHERE beer_id = @beer_id";
-        public BeerSqlDAO(string connectionString)
-        {
-            this.connectionString = connectionString;
-        }
 
         public IEnumerable<Beer> GetAllBeers()
         {
