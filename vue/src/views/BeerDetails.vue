@@ -16,7 +16,16 @@
             <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
                 <div class="d-flex w-100 justify-content-between">
                     <h5 class="mb-1">{{review.name}}</h5>
-                    <small>{{review.rating}}/5</small>
+                    
+                    <div>
+                        <img
+                            src="../img/star.png"
+                            v-for="r in review.rating"
+                            v-bind:key="r"
+                            alt="image of a star"
+                        />
+                    </div>
+                    
                 </div>
                 <p class="mb-1">{{review.description}}</p>
             </a>
@@ -181,6 +190,10 @@ export default {
     justify-content: Center;
     align-items: center;
     flex-direction: column;
+}
+
+div > img {
+    height: 17px;
 }
 
 </style>
