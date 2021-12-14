@@ -17,29 +17,24 @@
         </li>
         <li class="nav-item h5">
             <router-link tag="a" class="nav-link"
-            v-bind:class="{' active': $route.path == '/breweries' }" 
+            v-bind:class="{' active': $route.path == '/breweries' || $route.path.match(/^\/breweries\/.*$/) }" 
             v-bind:to="{ name: 'breweries' }">
             Breweries</router-link>
         </li>
         <li class="nav-item h5">
           <router-link tag="a" class="nav-link"
-            v-bind:class="{' active': $route.path == '/beers' }" 
+            v-bind:class="{' active': $route.path == '/beers' || $route.path.match(/^\/beers\/.*$/) }" 
             v-bind:to="{ name: 'beers' }">
             Beers</router-link>
         </li>
                 <li class="nav-item h5">
           <router-link tag="a" class="nav-link"
-            v-bind:class="{' active': $route.path == '/user' }" 
+            v-bind:class="{' active': $route.path.match(/^\/user\/.*$/) }" 
             v-bind:to="{ name: 'UserProfile', params: {id: user.userId}}">
             My Profile</router-link>
         </li>
-
       </ul>
       <div id="nav">
-        <!--<router-link class="nav-item" v-bind:to="{ name: 'home' }">
-          <i class="fas fa-home"></i> This is a font awesome icon
-          Home 
-        </router-link>-->
         <router-link
           class="nav-item h6"
           v-bind:to="{ name: 'register' }"
