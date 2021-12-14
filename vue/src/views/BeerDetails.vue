@@ -101,7 +101,7 @@ export default {
                 sum += r.rating;
             })
 
-            return sum / this.reviews.length;
+            return (sum / this.reviews.length).toFixed(2);
         }
     },
     
