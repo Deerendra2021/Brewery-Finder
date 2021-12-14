@@ -27,8 +27,9 @@ export default {
 <style>
 
 .beerIcon {
-    max-width: 70px;
-    max-height: auto;
+    display: block;
+    max-width: 20%; 
+    height: auto;
     float: left;
     
 }
