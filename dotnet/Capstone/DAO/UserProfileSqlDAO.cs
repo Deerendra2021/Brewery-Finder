@@ -47,6 +47,29 @@ namespace Capstone.DAO
             return userProfile;
         }
 
+        public void UpdateUserProfile(int id, UserProfile profile)
+        {
+            const string sqlUpdateUserProfile = "UPDATE user_profile " +
+                "SET first_name = @firstName, last_name = @lastName, favorite_brewery = @favBrewery, favorite_beer = @favBeer " +
+                "WHERE user_id = @id;";
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+
+                using (SqlCommand cmd = new SqlCommand(sqlUpdateUserProfile, conn))
+                {
+                    cmd.Parameters.AddWithValue("@firstName", profile.FirstName);
+                    cmd.Parameters.AddWithValue("@lastName", profile.LastName);
+                    cmd.Parameters.AddWithValue("@favBrewery", profile.FavoriteBrewery);
+                    cmd.Parameters.AddWithValue("@favBeer", profile.FavoriteBeer);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+
+        }
+
     }
 }
 

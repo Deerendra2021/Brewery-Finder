@@ -34,5 +34,14 @@ namespace Capstone.Controllers
 
             return Ok(profile);
         }
+
+        [HttpPut("{userId}")]
+        [Authorize]
+        public ActionResult UpdateUserProfile(int userId, UserProfile profile)
+        {
+            userProfile.UpdateUserProfile(userId, profile);
+
+            return Ok();
+        }
     }
 }

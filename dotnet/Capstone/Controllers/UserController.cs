@@ -34,6 +34,5 @@ namespace Capstone.Controllers
 
             return Ok(returnUser);
         }
-
     }
 }

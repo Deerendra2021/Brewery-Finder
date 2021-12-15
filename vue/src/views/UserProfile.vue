@@ -6,6 +6,18 @@
             <p>Favorite Beers: {{userProfile.favoriteBeer}}</p>
         </div>
         <button type="button" v-show="showUpdateFormButton && user.userId === this.$route.params.id">Update Profile</button>
+        
+        <form id="update-form">
+            <label for="first-name">First Name: </label>
+            <input type="text" id="first-name" class="form-textbox" required maxlength="50">
+            <label for="last-name">Last Name: </label>
+
+            <label for="favorite-brewery">Favorite Breweries: </label>
+
+            <label for="favorite-beer">Favorite Beers: </label>
+
+        </form>
+        
         <div class="user-photos">
             <h2>User Photos:</h2>
         </div>
@@ -21,7 +33,13 @@ export default {
         return {
             userProfile: [],
             showUpdateFormButton: true,
-            showUpdateForm: false
+            showUpdateForm: false,
+            updatedProfile: {
+                firstName: '',
+                lastName: '',
+                favoriteBrewery: '',
+                favoriteBeer: ''
+            }
         }
     },
 
