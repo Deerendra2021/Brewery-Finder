@@ -5,16 +5,26 @@
             <p>Favorite Breweries: {{userProfile.favoriteBrewery}}</p>
             <p>Favorite Beers: {{userProfile.favoriteBeer}}</p>
         </div>
-        <button type="button" v-show="showUpdateFormButton && user.userId === this.$route.params.id">Update Profile</button>
+        <button type="button" v-show="showUpdateFormButton && user.userId === this.$route.params.id">Update Profiles</button>
         
-        <form id="update-form">
+        <form id="update-form" v-on:submit.prevent="updateUserProfile()">
             <label for="first-name">First Name: </label>
-            <input type="text" id="first-name" class="form-textbox" required maxlength="50">
+            <input type="text" id="first-name" class="form-textbox" required maxlength="50" v-model="updatedProfile.firstName">
+            <div>&nbsp;</div>
+            
             <label for="last-name">Last Name: </label>
+            <input type="text" id="last-name" class="form-textbox" required maxlength="50" v-model="updatedProfile.lastName">
+            <div>&nbsp;</div>
 
             <label for="favorite-brewery">Favorite Breweries: </label>
+            <input type="text" id="favorite-brewery" class="form-textbox" required maxlength="50" v-model="updatedProfile.favoriteBrewery">
+            <div>&nbsp;</div>
 
             <label for="favorite-beer">Favorite Beers: </label>
+            <input type="text" id="favorite-beer" class="form-textbox" required maxlength="50" v-model="updatedProfile.favoriteBeer">
+            <div>&nbsp;</div>
+
+            <button type="submit">Submit</button>
 
         </form>
         
@@ -35,6 +45,7 @@ export default {
             showUpdateFormButton: true,
             showUpdateForm: false,
             updatedProfile: {
+                userId: parseInt(this.$route.params.id),
                 firstName: '',
                 lastName: '',
                 favoriteBrewery: '',
@@ -47,6 +58,24 @@ export default {
         user() {
             return this.$store.state.user;
         },
+    },
+
+    methods: {
+        updateUserProfile(){
+
+            UserService.updateUserProfile(this.updatedProfile)
+            .then(response => {
+
+                this.userProfile.push(response.data);
+              
+            })
+            .catch(response => {
+
+                console.error("Could not update user profile", response);
+                
+            });
+
+        }
     },
 
     created() {
