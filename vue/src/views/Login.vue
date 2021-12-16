@@ -1,7 +1,7 @@
 <template>
-  <div id="login" class="text-center d-flex justify-content-center">
+  <div id="login" class="container transparent-background text-center d-flex justify-content-center">
     <form class="form-signin" @submit.prevent="login">
-      <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
+      <h1 class="mb-3 font-weight-normal">Please Sign In</h1>
       <div class="alert alert-danger" role="alert" v-if="invalidCredentials">
         Invalid username and password!
       </div>
@@ -88,7 +88,8 @@ export default {
 
 <style>
   #login {
-    min-height: 80vh;
+    min-height: 70vh;
+    margin-top: 8vh;
   }
 
   .register {
@@ -96,8 +97,10 @@ export default {
     border-radius: 4px;
   }
 
-  .h3 {
-     background-color: #222222a2;
-     border-radius: 4px;
+  .transparent-background {
+    background-color: #222222a2;
+    border-radius: 4px;
+    max-width: 25%;
+    margin-bottom: 8vh;
   }
 </style>

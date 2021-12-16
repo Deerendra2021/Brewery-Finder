@@ -2,31 +2,36 @@
     <div class="container user-profile">
         <div id="user-info" v-show="showUserProfile">
             <h1>{{userProfile.firstName}} {{userProfile.lastName}}</h1>
-            <p>Favorite Breweries: {{userProfile.favoriteBrewery}}</p>
-            <p>Favorite Beers: {{userProfile.favoriteBeer}}</p>
+            <p><strong><u>My Favorite Breweries: </u></strong><br/>{{userProfile.favoriteBrewery}}</p>
+            <p><strong><u>My Favorite Beers: </u></strong><br/>{{userProfile.favoriteBeer}}</p>
         </div>
-        <button type="button" v-show="showUserProfile && user.userId === this.$route.params.id"
-                @click="showUserProfile = false; showUpdateForm = true;">Update Profile</button>
+
+        <div class="d-flex justify-content-center">
+            <button type="button" class="btn btn-secondary" v-show="showUserProfile && user.userId === this.$route.params.id"
+                @click="showUserProfile = false; showUpdateForm = true;">
+                Update My Profile</button>
+        </div>        
         
-        <form id="update-form" v-show="showUpdateForm" v-on:submit.prevent="updateUserProfile()">
+        <form  class="form-group" id="update-form" v-show="showUpdateForm" v-on:submit.prevent="updateUserProfile()">
             <label for="first-name">First Name: </label>
-            <input type="text" id="first-name" class="form-textbox" required maxlength="50" v-model="updatedProfile.firstName">
+            <input type="text" id="first-name" class="form-control" required maxlength="50" v-model="updatedProfile.firstName">
             <div>&nbsp;</div>
-            
+            <br />
             <label for="last-name">Last Name: </label>
-            <input type="text" id="last-name" class="form-textbox" required maxlength="50" v-model="updatedProfile.lastName">
+            <input type="text" id="last-name" class="form-control" required maxlength="50" v-model="updatedProfile.lastName">
             <div>&nbsp;</div>
-
+            <br />
             <label for="favorite-brewery">Favorite Breweries: </label>
-            <input type="text" id="favorite-brewery" class="form-textbox" maxlength="50" v-model="updatedProfile.favoriteBrewery">
+            <input type="text" id="favorite-brewery" class="form-control" maxlength="50" v-model="updatedProfile.favoriteBrewery">
             <div>&nbsp;</div>
-
+            <br />
             <label for="favorite-beer">Favorite Beers: </label>
-            <input type="text" id="favorite-beer" class="form-textbox" maxlength="50" v-model="updatedProfile.favoriteBeer">
+            <input type="text" id="favorite-beer" class="form-control" maxlength="50" v-model="updatedProfile.favoriteBeer">
             <div>&nbsp;</div>
-
-            <button type="submit" @click="showUserProfile = true; showUpdateForm = false">Submit</button>
-
+            <br />
+            <div class="d-flex justify-content-center">
+            <button class="btn btn-success" type="submit" @click="showUserProfile = true; showUpdateForm = false">Submit Changes</button>
+            </div>
         </form>
         
         <div v-if="false" class="user-photos">
@@ -136,4 +141,5 @@ export default {
     #update-form > input {
         margin-left: 1em;
     }
+
 </style>
