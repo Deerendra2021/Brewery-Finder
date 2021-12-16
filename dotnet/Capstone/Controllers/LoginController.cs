@@ -13,12 +13,15 @@ namespace Capstone.Controllers
         private readonly ITokenGenerator tokenGenerator;
         private readonly IPasswordHasher passwordHasher;
         private readonly IUserDAO userDAO;
+        private readonly IUserProfileDAO profileDAO;
 
-        public LoginController(ITokenGenerator _tokenGenerator, IPasswordHasher _passwordHasher, IUserDAO _userDAO)
+        public LoginController(ITokenGenerator _tokenGenerator, IPasswordHasher _passwordHasher, IUserDAO _userDAO, IUserProfileDAO _profileDAO)
         {
             tokenGenerator = _tokenGenerator;
             passwordHasher = _passwordHasher;
             userDAO = _userDAO;
+            profileDAO = _profileDAO;
+
         }
 
         /// <summary>
@@ -108,6 +111,17 @@ namespace Capstone.Controllers
             if (user != null)
             {
                 result = Created(user.Username, null); //values aren't read on client
+
+                UserProfile newProfile = new UserProfile()
+                {
+                    UserId = user.UserId,
+                    FirstName = userParam.FirstName,
+                    LastName = userParam.LastName,
+                    FavoriteBrewery = "",
+                    FavoriteBeer = ""
+                };
+
+                profileDAO.AddUserProfile(newProfile);
             }
             else
             {

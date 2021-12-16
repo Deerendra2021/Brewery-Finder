@@ -39,9 +39,9 @@ namespace Capstone.Controllers
         [Authorize]
         public ActionResult UpdateUserProfile(int userId, UserProfile profile)
         {
-            userProfile.UpdateUserProfile(userId, profile);
+            UserProfile updatedProfile = userProfile.UpdateUserProfile(userId, profile);
 
-            return Ok();
+            return Ok(updatedProfile);
         }
     }
 }

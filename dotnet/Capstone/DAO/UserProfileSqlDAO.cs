@@ -47,7 +47,7 @@ namespace Capstone.DAO
             return userProfile;
         }
 
-        public void UpdateUserProfile(int id, UserProfile profile)
+        public UserProfile UpdateUserProfile(int id, UserProfile profile)
         {
             const string sqlUpdateUserProfile = "UPDATE user_profile " +
                 "SET first_name = @firstName, last_name = @lastName, favorite_brewery = @favBrewery, favorite_beer = @favBeer " +
@@ -59,6 +59,7 @@ namespace Capstone.DAO
 
                 using (SqlCommand cmd = new SqlCommand(sqlUpdateUserProfile, conn))
                 {
+                    cmd.Parameters.AddWithValue("@id", profile.UserId);
                     cmd.Parameters.AddWithValue("@firstName", profile.FirstName);
                     cmd.Parameters.AddWithValue("@lastName", profile.LastName);
                     cmd.Parameters.AddWithValue("@favBrewery", profile.FavoriteBrewery);
@@ -68,6 +69,27 @@ namespace Capstone.DAO
                 }
             }
 
+            return profile;
+        }
+
+        public void AddUserProfile(UserProfile newProfile)
+        {
+            const string sqlAddUserProfile = "INSERT INTO user_profile (user_id, first_name, last_name) " +
+                "VALUES (@userId, @firstName, @lastName);";
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+
+                using (SqlCommand cmd = new SqlCommand(sqlAddUserProfile, conn))
+                {
+                    cmd.Parameters.AddWithValue("@userId", newProfile.UserId);
+                    cmd.Parameters.AddWithValue("@firstName", newProfile.FirstName);
+                    cmd.Parameters.AddWithValue("@lastName", newProfile.LastName);
+
+                    cmd.ExecuteNonQuery();
+                }
+        }
         }
 
     }

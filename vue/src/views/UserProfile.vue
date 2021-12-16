@@ -1,13 +1,14 @@
 <template>
     <div class="container user-profile">
-        <div id="user-info" v-show="showUpdateFormButton">
+        <div id="user-info" v-show="showUserProfile">
             <h1>{{userProfile.firstName}} {{userProfile.lastName}}</h1>
             <p>Favorite Breweries: {{userProfile.favoriteBrewery}}</p>
             <p>Favorite Beers: {{userProfile.favoriteBeer}}</p>
         </div>
-        <button type="button" v-show="showUpdateFormButton && user.userId === this.$route.params.id">Update Profiles</button>
+        <button type="button" v-show="showUserProfile && user.userId === this.$route.params.id"
+                @click="showUserProfile = false; showUpdateForm = true;">Update Profile</button>
         
-        <form id="update-form" v-on:submit.prevent="updateUserProfile()">
+        <form id="update-form" v-show="showUpdateForm" v-on:submit.prevent="updateUserProfile()">
             <label for="first-name">First Name: </label>
             <input type="text" id="first-name" class="form-textbox" required maxlength="50" v-model="updatedProfile.firstName">
             <div>&nbsp;</div>
@@ -17,18 +18,18 @@
             <div>&nbsp;</div>
 
             <label for="favorite-brewery">Favorite Breweries: </label>
-            <input type="text" id="favorite-brewery" class="form-textbox" required maxlength="50" v-model="updatedProfile.favoriteBrewery">
+            <input type="text" id="favorite-brewery" class="form-textbox" maxlength="50" v-model="updatedProfile.favoriteBrewery">
             <div>&nbsp;</div>
 
             <label for="favorite-beer">Favorite Beers: </label>
-            <input type="text" id="favorite-beer" class="form-textbox" required maxlength="50" v-model="updatedProfile.favoriteBeer">
+            <input type="text" id="favorite-beer" class="form-textbox" maxlength="50" v-model="updatedProfile.favoriteBeer">
             <div>&nbsp;</div>
 
-            <button type="submit">Submit</button>
+            <button type="submit" @click="showUserProfile = true; showUpdateForm = false">Submit</button>
 
         </form>
         
-        <div class="user-photos">
+        <div v-if="false" class="user-photos">
             <h2>User Photos:</h2>
         </div>
     </div>
@@ -42,7 +43,7 @@ export default {
     data() {
         return {
             userProfile: [],
-            showUpdateFormButton: true,
+            showUserProfile: true,
             showUpdateForm: false,
             updatedProfile: {
                 userId: parseInt(this.$route.params.id),
@@ -50,7 +51,7 @@ export default {
                 lastName: '',
                 favoriteBrewery: '',
                 favoriteBeer: ''
-            }
+            }            
         }
     },
 
@@ -61,19 +62,25 @@ export default {
     },
 
     methods: {
-        updateUserProfile(){
+        updateUserProfile() {
 
-            UserService.updateUserProfile(this.updatedProfile)
+            UserService.updateUserProfile(parseInt(this.$route.params.id),this.updatedProfile)
             .then(response => {
 
-                this.userProfile.push(response.data);
+                this.userProfile = response.data;
               
             })
             .catch(response => {
 
                 console.error("Could not update user profile", response);
                 
-            });
+            });   
+        },
+        setUpdatedProfile() {
+            this.updatedProfile.firstName = this.userProfile.firstName;
+            this.updatedProfile.lastName = this.userProfile.lastName;
+            this.updatedProfile.favoriteBrewery = this.userProfile.favoriteBrewery;
+            this.updatedProfile.favoriteBeer = this.userProfile.favoriteBeer;
 
         }
     },
@@ -84,11 +91,13 @@ export default {
         UserService.getUserProfile(userId)
             .then(response => {
                 this.userProfile = response.data;
+                this.setUpdatedProfile();
             })
             .catch(response => {
                 console.error("Could not find user", response);
                 this.$router.push({name: 'Home'});
-            })    }
+            })
+        }
 
 }
 </script>
@@ -118,5 +127,13 @@ export default {
         position: relative;
         right: 1rem;
         padding-top: 1em;
+    }
+
+    #update-form {
+        padding-top: 2em;
+    }
+
+    #update-form > input {
+        margin-left: 1em;
     }
 </style>

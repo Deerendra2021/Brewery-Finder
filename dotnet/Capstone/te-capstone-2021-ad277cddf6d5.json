@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "te-capstone-2021",
+  "private_key_id": "ad277cddf6d5aea509fce9e391bc02aba3a20e4b",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDJSmMZO2GjJ9vC\nu6HR40WqjnCIxmHwyK4Lif8+fd2O/a36aOB6q+sIxCuplj8xhZhY3Jk48o4t5Vjp\nOnb26zAXIaujPwFd2W70P+bWHbM4OswYC3B8acaDw6Hg2TpOm02T+mlQH3/eYH7b\ns08JSffOSs7Ru+P8ibiJShlk1ds8NnpI0cbyH/nFdgCv6n2wXzAFY0cK+WH32ccP\nnQmZsOcSAxP+2DcTGB2bVfacJsHl2WLf56U/+EkUEw78FiP1la+1O+kEcqg+gtw5\nEmLW/KdDrVaMF3xAznYPoHrjQbNHQ04ji0TjAi2Ehgh/mrNbJxJWN3xMf3ulnEWo\nVgvImcY7AgMBAAECggEANZY3EZWMZaoLyCi5aK3vcvtenBrsIfTa2LmRGOrbG+EO\n+vYGpMG13WyUDx6vjhh5uVZo+A8iqLdA1z44Q33THKVbEyeHzps+/Ykxg9j+SD7m\n7JPHC2gBcDyZkMljy19u5LEqbikkmmfn/ccbiGaHsQSbUJyLkkR7uxjd78k7Bykk\nExWBPYLdOZM5pDVb8mbF4l5wewKMNqh77nndysG4z4fsn+tRsktGJO3qrrtGbe93\ncB0Lx43XbIVr2LzIOS7/o9usT+hGml7uiNL0b8VOK/6ZDbM57Bwl6ETE9vZweH7V\nkcCRrayKIywvPc39s2rqERYzT4Oca5Ioc6qKiZZSaQKBgQD8ZnsTLMkQKUvutoqv\naC1LL4LdIcZNLb8ICK9+NMdlVo2+PO8WO8kMlD1Ld+kacayXFpth3AzEMQBKJ9Lh\nBIBS8lJ1v1zD+6nlFMUwTM9uUMb89Ux8XCKjD4NsYQuJa1mhTLBupNnjnfcTy5X8\nnzPXP0bN4wSbKmc0NQB1EMU0NQKBgQDMKU2z8lrRxkxyJjrIk+WmE7BzKbskCB33\nMihV194cuDRvGZywAuNcNZCchIpY+r4gcOpOzA9WEyT1P2zYaosZ5gjVVfNq0VvO\nVvmWN7BTnrWexJVUzQ+wP6cCRnjJi933E3tPLJcwpxBHF6FL96VEGUxwwp6iztXA\ngIpGytV+rwKBgBkJfWnwhl1hC1Q5rVYrClsr8lpHMGmVgR6l5eqqB6GIzXSyjLDy\n60WhKtdipK/n2MwABRfXATkw9ytj+eoyTRxtRzrA6c3TGA5OWiUpaWYzAxoypwyr\nAxCTyGCm28Mc7/4tIk9HcQnAMLM4/b7aeAUBFN/1hg5yTVyDaXEzYayFAoGBALzr\n96htuxblXfY/ZCQZn+fnzl8zHaaBEGGf+208XZ/L4VFxrOm/Mm8wbgo4J+Gg3fEd\nK+UQtZxcCNYdA/bb2K51jHUFnUOaSk8NctZL4BHxCnXJybn4K+1XaY8UcU9n61Vo\npLGmPJ3b6pcuyaaHmloC4xZxMeTMa0ZAbDSIG7mnAoGAGABLru7SJegaJCaTdESs\nNx2ULeVXVpYGjzxwTmjz3ciz0qAtx+tayl5aAXzf6/L0TeU2D43fuWnoD37waVOg\nVy61oTPVlSGnaBOg0AIml8VlAtQqBj+leB6bQu718mlHdL2cyqEfZs+hAIT0Shb+\nMtXQ9tPv2eLqxRnw1PJ3hA4=\n-----END PRIVATE KEY-----\n",
+  "client_email": "brewery-photos-service-account@te-capstone-2021.iam.gserviceaccount.com",
+  "client_id": "110611936810413599209",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/brewery-photos-service-account%40te-capstone-2021.iam.gserviceaccount.com"
+}

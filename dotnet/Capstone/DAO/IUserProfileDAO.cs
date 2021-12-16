@@ -4,7 +4,8 @@ namespace Capstone.DAO
 {
     public interface IUserProfileDAO
     {
+        void AddUserProfile(UserProfile newProfile);
         UserProfile GetUserProfile(int id);
-        void UpdateUserProfile(int id, UserProfile profile);
+        UserProfile UpdateUserProfile(int id, UserProfile profile);
     }
 }

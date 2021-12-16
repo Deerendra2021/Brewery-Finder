@@ -17,6 +17,26 @@
       </div>
       <div class="form-group">
         <input
+          type="text"
+          id="firstName"
+          class="form-control"
+          placeholder="First Name"
+          v-model="user.firstName"
+          required
+          />
+      </div>
+      <div class="form-group">
+        <input
+          type="text"
+          id="lastName"
+          class="form-control"
+          placeholder="Last Name"
+          v-model="user.lastName"
+          required
+          />
+      </div>
+      <div class="form-group">
+        <input
           type="password"
           id="password"
           class="form-control"
