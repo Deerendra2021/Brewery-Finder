@@ -11,12 +11,12 @@
       </thead>
       <br />
       <tbody>
-      <tr v-for="beer in beers" v-bind:key="beer.id">
+      <router-link tag="tr" v-for="beer in beers" v-bind:key="beer.id" v-bind:to="{name: 'BeerDetails', params: {id: beer.id}}">
         <td>{{beer.name}}</td>
         <td>{{beer.style}}</td>
         <td>{{beer.availability}}</td>
         <td>{{beer.abv}}</td>
-      </tr>
+      </router-link>
       </tbody>
     <beer-list-item />
     </table>
