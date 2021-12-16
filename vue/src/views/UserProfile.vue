@@ -4,7 +4,6 @@
             <h1>{{userProfile.firstName}} {{userProfile.lastName}}</h1>
             <p><strong><u>My Favorite Breweries: </u></strong><br/>{{userProfile.favoriteBrewery}}</p>
             <p><strong><u>My Favorite Beers: </u></strong><br/>{{userProfile.favoriteBeer}}</p>
-            <p><strong><u>Recent Check Ins: </u></strong><br/></p>
         </div>
 
         <div class="d-flex justify-content-center">
@@ -65,10 +64,6 @@ export default {
         user() {
             return this.$store.state.user;
         },
-    },
-
-    components: {
-        CheckInListItem
     },
 
     methods: {

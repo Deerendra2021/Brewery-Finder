@@ -10,9 +10,6 @@
         <div class="mapGrid">
             <h3 class="text-center">{{brewery.description}}</h3>
 
-            <button type="button" class="btn btn-secondary" >
-                Check In</button>
-
             <iframe class="googleMap" width="600" height="450" style="border:0; border: 2px solid black;" loading="lazy" allowfullscreen 
             v-bind:src="`https://www.google.com/maps/embed/v1/place?q=${addressReturn}&key=${apiKey}`"></iframe>
         </div>
@@ -107,8 +104,7 @@ ul {
     column-gap: 50px;
 
     grid-template-areas: 
-        "description map"
-        "checkInButton map";
+        "description map";
 
     align-items: center;    
 }
@@ -120,12 +116,6 @@ ul {
 .mapGrid > iframe {
     grid-area: map;
     border-radius: 10px;
-}
-
-.mapGrid > button {
-    grid-area: checkInButton;
-    display: block;
-    margin: 0 auto;
 }
 
 h1 {
